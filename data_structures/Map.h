@@ -111,6 +111,8 @@ struct RoadInfo{
     City * dest;
     double drivingWeight;
     double walkingWeight;
+    bool drivable;
+    bool walkable;
 };
 
 /**
@@ -154,12 +156,16 @@ public:
      * @return Pointer to the reverse Road object.
      */
     Road* getReverse() const;
+    bool isWalkable() const;
+    bool isDrivable() const;
 protected:
     City *orig;
     City *dest;
     Road* reverse;
     double drivingWeight;
     double walkingWeight;
+    bool drivable;
+    bool walkable;
 };
 
 
@@ -188,6 +194,12 @@ public:
     */
     bool addRoad(RoadInfo info);
     /**
+    * @brief Adds a road between two cities.
+    * @param location String.
+    * @return Pointer to the found city or else nullptr.
+    */
+    City* getCity(string location) const;
+    /**
     * @brief Gets the number of cities in the map.
     * @return The number of cities.
     */
@@ -209,7 +221,7 @@ protected:
 
 /************************* Road **************************/
 
-Road::Road(RoadInfo info): orig(info.source),dest(info.dest),drivingWeight(info.drivingWeight),walkingWeight(info.walkingWeight){}
+Road::Road(RoadInfo info): orig(info.source),dest(info.dest),drivingWeight(info.drivingWeight),walkingWeight(info.walkingWeight),walkable{info.walkable},drivable{info.drivable}{}
 
 void Road::setReverse(Road* rev){
    this->reverse = rev;
@@ -233,6 +245,14 @@ double Road::getDrivingWeight() const{
 
 double Road::getWalkingWeight() const{
     return this->walkingWeight;
+}
+
+bool Road::isDrivable() const {
+    return this->drivable;
+}
+
+bool Road::isWalkable() const {
+    return this->walkable;
 }
 
 /************************* City **************************/
@@ -280,6 +300,15 @@ City* Map::findCity(const CityInfo &in) const{
       if(city->getInfo() == in){
           return city;
       }
+    }
+    return nullptr;
+}
+
+City* Map::getCity(string location) const{
+    for(auto city: cities){
+        if(city->getInfo().location == location){
+            return city;
+        }
     }
     return nullptr;
 }

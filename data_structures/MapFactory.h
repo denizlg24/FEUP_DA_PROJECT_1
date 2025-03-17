@@ -13,28 +13,28 @@ public:
     MapFactory();
     void setMap(Map* map);
     Map* getMap() const;
-    bool addCities(vector<CityInfo> cities);
-    bool addRoads(vector<RoadInfo> roads);
+    bool addCities(const vector<CityInfo>& cities);
+    bool addRoads(const vector<RoadInfo>& roads);
 protected:
-    Map* map;
+    Map* map = nullptr;
 };
 
-MapFactory::MapFactory() {
-  Map* newMap = new Map();
+inline MapFactory::MapFactory() {
+  auto newMap = new Map();
   setMap(newMap);
 }
 
-void MapFactory::setMap(Map* m){
+inline void MapFactory::setMap(Map* m){
   this->map = m;
 }
 
-Map* MapFactory::getMap() const{
+inline Map* MapFactory::getMap() const{
   return this->map;
 }
 
-bool MapFactory::addCities(vector<CityInfo> cities){
+inline bool MapFactory::addCities(const vector<CityInfo>& cities){
   Map* m = getMap();
-  for(auto city: cities){
+  for(const auto& city: cities){
     if(!m->addCity(city)){
       setMap(nullptr);
       return false;
@@ -43,9 +43,9 @@ bool MapFactory::addCities(vector<CityInfo> cities){
   return true;
 }
 
-bool MapFactory::addRoads(vector<RoadInfo> roads){
-  Map* m = getMap();
-  for(auto road: roads){
+inline bool MapFactory::addRoads(const vector<RoadInfo>& roads){
+  Map* m = this->getMap();
+  for(const auto& road: roads){
     if(!m->addRoad(road)){
       setMap(nullptr);
       return false;

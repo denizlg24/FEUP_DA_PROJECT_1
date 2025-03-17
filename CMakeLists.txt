@@ -4,6 +4,21 @@ project(FEUP_DA_PROJECT_1)
 set(CMAKE_CXX_STANDARD 14)
 set( CMAKE_BUILD_TYPE_TMP "${CMAKE_BUILD_TYPE}" )
 set( CMAKE_BUILD_TYPE "Release" )
-add_executable(main.cpp
-        data_structures/Map.h
-        data_structures/MapFactory.h)
+
+include_directories(data data_structures csv_parser)
+add_executable(FEUP_DA_PROJECT_1
+        main.cpp
+        csv_parser/CSVParser.cpp
+)
+
+set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )
+
+#add_definitions(-D_ITERATOR_DEBUG_LEVEL=0)
+#set(CMAKE_CXX_FLAGS_DEBUG "/MDd")  # Para Debug
+#set(CMAKE_CXX_FLAGS_RELEASE "/MD") # Para Release
+target_link_libraries(FEUP_DA_PROJECT_1)
+add_custom_target(copy_data ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/data ${CMAKE_BINARY_DIR}/data
+)
+add_dependencies(FEUP_DA_PROJECT_1 copy_data)
