@@ -37,7 +37,10 @@ struct CityInfo{
   }
 };
 
+
+
 class Road;
+struct RoadInfo;
 
 /**
  * @class City
@@ -87,19 +90,27 @@ public:
     void setProcessing(bool processing);
     /**
      * @brief Adds a road between two cities.
-     * @param source Source city.
-     * @param dest Destination city.
-     * @param drivingWeight Weight of the road for driving.
-     * @param walkingWeight Weight of the road for walking.
+     * @param info RoadInfo.
      * @return Pointer to the newly created Road object.
      */
-    Road* addRoad(City * source, City * dest, double drivingWeight, double walkingWeight);
+    Road* addRoad(RoadInfo info);
 
 protected:
     CityInfo info;
     vector<Road*> adj;
     bool visited = false;
     bool processing = false;
+};
+
+/**
+ * @struct RoadInfo
+ * @brief Represents basic information about a road.
+ */
+struct RoadInfo{
+    City * source;
+    City * dest;
+    double drivingWeight;
+    double walkingWeight;
 };
 
 /**
@@ -110,12 +121,9 @@ class Road{
 public:
     /**
        * @brief Constructs a Road object.
-       * @param source Source city.
-       * @param dest Destination city.
-       * @param drivingWeight Driving weight of the road.
-       * @param walkingWeight Walking weight of the road.
+       * @param info RoadInfo.
        */
-    Road(City * source, City * dest, double drivingWeight, double walkingWeight);
+    Road(RoadInfo info);
     /**
      * @brief Gets the origin city of the road.
      * @return Pointer to the origin City object.
@@ -175,13 +183,10 @@ public:
     bool addCity(const CityInfo &in);
     /**
     * @brief Adds a road between two cities.
-    * @param source Source city information.
-    * @param dest Destination city information.
-    * @param drivingWeight Driving weight of the road.
-    * @param walkingWeight Walking weight of the road.
+    * @param info RoadInfo.
     * @return True if the road was added successfully, false otherwise.
     */
-    bool addRoad(const CityInfo &source, const CityInfo &dest, double drivingWeight, double walkingWeight);
+    bool addRoad(RoadInfo info);
     /**
     * @brief Gets the number of cities in the map.
     * @return The number of cities.
@@ -204,7 +209,7 @@ protected:
 
 /************************* Road **************************/
 
-Road::Road(City * source, City * dest, double drivingWeight, double walkingWeight): orig(source),dest(dest),drivingWeight(drivingWeight),walkingWeight(walkingWeight){}
+Road::Road(RoadInfo info): orig(info.source),dest(info.dest),drivingWeight(info.drivingWeight),walkingWeight(info.walkingWeight){}
 
 void Road::setReverse(Road* rev){
    this->reverse = rev;
@@ -262,8 +267,8 @@ bool City::isProcessing() const {
     return this->processing;
 }
 
-Road* City::addRoad(City * source, City * dest, double drivingWeight, double walkingWeight) {
-    auto newRoad = new Road(source,dest,drivingWeight,walkingWeight);
+Road* City::addRoad(RoadInfo roadInfo) {
+    auto newRoad = new Road(roadInfo);
     this->adj.push_back(newRoad);
     return newRoad;
 }
@@ -286,13 +291,13 @@ bool Map::addCity(const CityInfo &in) {
     return true;
 }
 
-bool Map::addRoad(const CityInfo &source, const CityInfo &dest, double drivingWeight, double walkingWeight){
-    auto v1 = findCity(source);
-    auto v2 = findCity(dest);
+bool Map::addRoad(RoadInfo info){
+    auto v1 = findCity(info.source->getInfo());
+    auto v2 = findCity(info.dest->getInfo());
     if (v1 == nullptr || v2 == nullptr)
         return false;
-    auto e1 = v1->addRoad(v1, v2, drivingWeight, walkingWeight);
-    auto e2 = v2->addRoad(v2, v1, drivingWeight, walkingWeight);
+    auto e1 = v1->addRoad(info);
+    auto e2 = v2->addRoad(info);
     e1->setReverse(e2);
     e2->setReverse(e1);
     roads.push_back(e1);
