@@ -34,4 +34,5 @@ add_custom_target(copy_data ALL
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/data ${CMAKE_BINARY_DIR}/data
 )
+
 add_dependencies(FEUP_DA_PROJECT_1 copy_data)
