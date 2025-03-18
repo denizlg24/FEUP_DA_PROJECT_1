@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 
-void CLI::runInteractive(CommandRegistry& registry) {
+void CLI::run(CommandRegistry& registry) {
     std::string input;
     while (true) {
         std::cout << "DA24/25 > ";
@@ -21,6 +21,7 @@ void CLI::runInteractive(CommandRegistry& registry) {
         while (iss >> token) {
             tokens.push_back(token);
         }
+
         if (!tokens.empty()) {
             registry.executeCommand(tokens[0], tokens);
         }
