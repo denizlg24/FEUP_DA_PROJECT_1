@@ -6,7 +6,7 @@
 #define MAPFACTORY_H
 
 #include "Map.h"
-#include "CSVParser.h"
+#include "../csv_parser/CSVParser.h"
 
 class MapFactory {
 public:

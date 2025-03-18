@@ -221,73 +221,73 @@ protected:
 
 /************************* Road **************************/
 
-Road::Road(RoadInfo info): orig(info.source),dest(info.dest),drivingWeight(info.drivingWeight),walkingWeight(info.walkingWeight),walkable{info.walkable},drivable{info.drivable}{}
+inline Road::Road(RoadInfo info): orig(info.source),dest(info.dest),drivingWeight(info.drivingWeight),walkingWeight(info.walkingWeight),walkable{info.walkable},drivable{info.drivable}{}
 
-void Road::setReverse(Road* rev){
+inline void Road::setReverse(Road* rev){
    this->reverse = rev;
 }
 
-Road* Road::getReverse() const{
+inline Road* Road::getReverse() const{
     return this->reverse;
 }
 
-City* Road::getOrigin() const{
+inline City* Road::getOrigin() const{
   return this->orig;
 }
 
-City* Road::getDest() const{
+inline City* Road::getDest() const{
   return this->dest;
 }
 
-double Road::getDrivingWeight() const{
+inline double Road::getDrivingWeight() const{
   return this->drivingWeight;
 }
 
-double Road::getWalkingWeight() const{
+inline double Road::getWalkingWeight() const{
     return this->walkingWeight;
 }
 
-bool Road::isDrivable() const {
+inline bool Road::isDrivable() const {
     return this->drivable;
 }
 
-bool Road::isWalkable() const {
+inline bool Road::isWalkable() const {
     return this->walkable;
 }
 
 /************************* City **************************/
 
-City::City(CityInfo in): info(in) {};
+inline City::City(CityInfo in): info(in) {};
 
-void City::setInfo(CityInfo in){
+inline void City::setInfo(CityInfo in){
     this->info = in;
 };
 
-CityInfo City::getInfo() const {
+inline CityInfo City::getInfo() const {
     return this->info;
 }
 
-void City::setVisited(bool vi) {
+inline void City::setVisited(bool vi) {
     this->visited = vi;
 }
 
-void City::setProcessing(bool pro) {
+inline void City::setProcessing(bool pro) {
     this->processing = pro;
 }
 
-vector<Road*> City::getAdj() const {
+inline vector<Road*> City::getAdj() const {
     return this->adj;
 }
 
-bool City::isVisited() const {
+inline bool City::isVisited() const {
     return this->visited;
 }
 
-bool City::isProcessing() const {
+inline bool City::isProcessing() const {
     return this->processing;
 }
 
-Road* City::addRoad(RoadInfo roadInfo) {
+inline Road* City::addRoad(RoadInfo roadInfo) {
     auto newRoad = new Road(roadInfo);
     this->adj.push_back(newRoad);
     return newRoad;
@@ -295,7 +295,7 @@ Road* City::addRoad(RoadInfo roadInfo) {
 
 /************************* Map **************************/
 
-City* Map::findCity(const CityInfo &in) const{
+inline City* Map::findCity(const CityInfo &in) const{
     for(auto city: cities){
       if(city->getInfo() == in){
           return city;
@@ -304,7 +304,7 @@ City* Map::findCity(const CityInfo &in) const{
     return nullptr;
 }
 
-City* Map::getCity(string location) const{
+inline City* Map::getCity(string location) const{
     for(auto city: cities){
         if(city->getInfo().location == location){
             return city;
@@ -313,14 +313,14 @@ City* Map::getCity(string location) const{
     return nullptr;
 }
 
-bool Map::addCity(const CityInfo &in) {
+inline bool Map::addCity(const CityInfo &in) {
     if (findCity(in) != nullptr)
         return false;
     cities.push_back(new City(in));
     return true;
 }
 
-bool Map::addRoad(RoadInfo info){
+inline bool Map::addRoad(RoadInfo info){
     auto v1 = findCity(info.source->getInfo());
     auto v2 = findCity(info.dest->getInfo());
     if (v1 == nullptr || v2 == nullptr)
@@ -334,15 +334,15 @@ bool Map::addRoad(RoadInfo info){
     return true;
 }
 
-int Map::getCityCount() const{
+inline int Map::getCityCount() const{
   return this->cities.size();
 }
 
-vector<City*> Map::getCities() const{
+inline vector<City*> Map::getCities() const{
   return this->cities;
 }
 
-vector<Road*> Map::getRoads() const{
+inline vector<Road*> Map::getRoads() const{
     return this->roads;
 }
 

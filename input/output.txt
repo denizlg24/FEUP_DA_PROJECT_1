@@ -1,0 +1,14 @@
+===== HELP =====
+help --> Displays a list of available commands.
+commands --> Displays a list of available commands.
+exit --> Exits program.
+read_cities <filename> --> Reads a csv file from filename and adds those cities as vertices to the map.
+read_roads <filename> --> Reads a csv file from filename and adds those roads as bidirectional edges to the map.
+Reading data/Locations.csv...
+Read 1256 cities from data/Locations.csv
+Adding cities to map...
+Added cities to map!
+Reading data/Distances.csv...
+Read 1881 roads from data/Distances.csv
+Adding roads to map...
+Added roads to map!
