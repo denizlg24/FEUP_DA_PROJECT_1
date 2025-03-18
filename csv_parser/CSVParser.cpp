@@ -7,7 +7,6 @@ bool CSVParser::loadCSV(const string &filename) {
     data = {};
     ifstream file(filename);
     if (!file.is_open()) {
-        cerr << "Error: Could not open file " << filename << endl;
         return false;
     }
 
