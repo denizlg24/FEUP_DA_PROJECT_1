@@ -22,6 +22,8 @@ add_executable(FEUP_DA_PROJECT_1
         commands/ReadRoads.cpp
         commands/Help.cpp
         commands/Command.cpp
+        commands/PlanRoute.h
+        commands/PlanRoute.cpp
 )
 
 set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )

@@ -20,6 +20,7 @@ int main(int argc, char* argv[]) {
     registry->registerCommand("help",new HelpCommand());
     registry->registerCommand("commands",new HelpCommand());
     registry->registerDependency("read_roads", "read_cities");
+
     if (argc == 3) {
         CLI::runFromFile(*registry, argv[1], argv[2]);
     } else {
