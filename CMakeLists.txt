@@ -22,8 +22,14 @@ add_executable(FEUP_DA_PROJECT_1
         commands/ReadRoads.cpp
         commands/Help.cpp
         commands/Command.cpp
+        commands/PlanRoute.cpp
+        commands/PlanRoute.h
         commands/RestrictedRoutePlanning.cpp
         commands/RestrictedRoutePlanning.h
+        utils/dijkstra.h
+        utils/dijkstra.cpp
+        utils/parseUtils.h
+        utils/parseUtils.cpp
 )
 
 set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )
