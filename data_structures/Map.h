@@ -199,6 +199,7 @@ public:
     * @return Pointer to the found city or else nullptr.
     */
     City* getCity(string location) const;
+    City* getCityById(int id) const;
     /**
     * @brief Gets the number of cities in the map.
     * @return The number of cities.
@@ -313,6 +314,15 @@ inline City* Map::getCity(string location) const{
     return nullptr;
 }
 
+inline City* Map::getCityById(int id) const {
+    for(auto city: cities){
+        if(city->getInfo().id == id){
+            return city;
+        }
+    }
+    return nullptr;
+}
+
 inline bool Map::addCity(const CityInfo &in) {
     if (findCity(in) != nullptr)
         return false;
@@ -326,7 +336,7 @@ inline bool Map::addRoad(RoadInfo info){
     if (v1 == nullptr || v2 == nullptr)
         return false;
     auto e1 = v1->addRoad(info);
-    auto e2 = v2->addRoad(info);
+    auto e2 = v2->addRoad({info.dest,info.source,info.drivingWeight,info.walkingWeight,info.walkable});
     e1->setReverse(e2);
     e2->setReverse(e1);
     roads.push_back(e1);
