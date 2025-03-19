@@ -9,6 +9,7 @@
 #include "commands/HelpCommand.h"
 #include "commands/ReadCities.h"
 #include "commands/ReadRoads.h"
+#include "commands/PlanRoute.h"
 #include "commands/RestrictedRoutePlanning.h"
 
 
@@ -20,9 +21,10 @@ int main(int argc, char* argv[]) {
     registry->registerCommand("read_roads",new ReadRoads());
     registry->registerCommand("help",new HelpCommand());
     registry->registerCommand("commands",new HelpCommand());
+    registry->registerCommand("plan_route",new PlanRoute());
     registry->registerCommand("restricted_route_planning",new RestrictedRoutePlanning());
     registry->registerDependency("read_roads", "read_cities");
-    registry->registerDependency("restricted_route_planning","read_cities");
+    registry->registerDependency("plan_route", "read_roads");
     registry->registerDependency("restricted_route_planning","read_roads");
     CLI::run(*registry);
     return 0;
