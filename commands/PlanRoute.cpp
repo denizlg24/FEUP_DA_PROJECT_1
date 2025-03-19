@@ -55,7 +55,7 @@ void PlanRoute::execute(Context *context, std::vector<std::string> args) {
             cout << c->getInfo().id;
             if (iter != result1.end()) {
                 cout << ",";
-                if (iter != result1.begin()) {
+                if (iter != result1.begin()+1) {
                     avoidNodes.push_back(c->getInfo().id);
                 }
             }
