@@ -1,3 +1,0 @@
-help
-read_cities data/Locations.csv
-read_roads data/Distances.csv

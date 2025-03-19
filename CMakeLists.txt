@@ -22,8 +22,8 @@ add_executable(FEUP_DA_PROJECT_1
         commands/ReadRoads.cpp
         commands/Help.cpp
         commands/Command.cpp
-        commands/PlanRoute.h
-        commands/PlanRoute.cpp
+        commands/RestrictedRoutePlanning.cpp
+        commands/RestrictedRoutePlanning.h
 )
 
 set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )
@@ -36,4 +36,5 @@ add_custom_target(copy_data ALL
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/data ${CMAKE_BINARY_DIR}/data
 )
+
 add_dependencies(FEUP_DA_PROJECT_1 copy_data)
