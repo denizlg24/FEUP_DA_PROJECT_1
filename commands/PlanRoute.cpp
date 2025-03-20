@@ -38,7 +38,8 @@ void PlanRoute::execute(Context *context, std::vector<std::string> args) {
         double weight1 = 0;
         vector<int> avoidNodes = {};
         vector<pair<int,int>> avoidSegments = {};
-        vector<City *> result1 =  dijkstra(map,source, destination, avoidNodes, avoidSegments, weight1);
+        unordered_map<City*,double> dist;
+        vector<City *> result1 =  dijkstra(map,source, destination, avoidNodes, avoidSegments, weight1,dist);
         if (result1.empty()) {
             cout << "Source:" << parsedArgs["Source"][0] << endl;
             cout << "Destination:" << parsedArgs["Destination"][0] << endl;
@@ -62,7 +63,8 @@ void PlanRoute::execute(Context *context, std::vector<std::string> args) {
         }
         cout << "(" << weight1 << ")" << endl;
         double weight2 = 0;
-        vector<City *> result2 =  dijkstra(map,source, destination, avoidNodes, avoidSegments,weight2);
+        unordered_map<City*,double> dist2;
+        vector<City *> result2 =  dijkstra(map,source, destination, avoidNodes, avoidSegments,weight2,dist2);
         if(result2.empty()) {
             cout << "AlternativeDrivingRoute:None" << endl;
             return;

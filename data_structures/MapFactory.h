@@ -68,7 +68,7 @@ inline vector<RoadInfo> MapFactory::readRoads(const string& filename) const {
         newRoad.drivingWeight = line[2] == noKey ? 0 : stoi(line[2]);
         newRoad.walkingWeight = line[3] == noKey ? 0 : stoi(line[3]);
         newRoad.drivable = line[2] != noKey;
-        newRoad.walkable = line[2] != noKey;
+        newRoad.walkable = line[3] != noKey;
         road_infos.push_back(newRoad);
       }
     }

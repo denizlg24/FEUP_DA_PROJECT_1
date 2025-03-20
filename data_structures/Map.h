@@ -336,7 +336,7 @@ inline bool Map::addRoad(RoadInfo info){
     if (v1 == nullptr || v2 == nullptr)
         return false;
     auto e1 = v1->addRoad(info);
-    auto e2 = v2->addRoad({info.dest,info.source,info.drivingWeight,info.walkingWeight,info.walkable});
+    auto e2 = v2->addRoad({info.dest,info.source,info.drivingWeight,info.walkingWeight,info.drivable,info.walkable});
     e1->setReverse(e2);
     e2->setReverse(e1);
     roads.push_back(e1);
