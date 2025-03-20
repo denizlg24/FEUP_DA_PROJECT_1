@@ -81,6 +81,12 @@ unordered_map<string, vector<int>> parseInput(const vector<string> &inputLines) 
                 continue;
             }
             parsedData[key] = parseSegments(value);
+        } else if (key == "MaxWalkTime") {
+            if (value.empty()) {
+                parsedData[key] = {};
+                continue;
+            }
+            parsedData[key] = {stoi(value)};
         }
     }
 

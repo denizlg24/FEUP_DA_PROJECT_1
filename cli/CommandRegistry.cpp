@@ -54,7 +54,6 @@ void CommandRegistry::executeCommand(const string &name, const vector<string> &a
             i--;
             inputFlag = true;
         } else if (fArgs[i] == ">" && i + 1 < fArgs.size()) {
-            cout << "Here";
             outputFile.open(fArgs[i + 1]);
             if (!outputFile) {
                 cout << "Error: Cannot open output file " << fArgs[i + 1] << endl;

@@ -30,6 +30,8 @@ add_executable(FEUP_DA_PROJECT_1
         utils/dijkstra.cpp
         utils/parseUtils.h
         utils/parseUtils.cpp
+        commands/EnvironmentalRoute.cpp
+        commands/EnvironmentalRoute.h
 )
 
 set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )

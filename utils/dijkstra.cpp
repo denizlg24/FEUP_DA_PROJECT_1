@@ -10,8 +10,7 @@
 
 vector<City *> dijkstra(const Map* map,City *start, City *end,
                                       const vector<int> &avoidNodes,
-                                      const vector<pair<int, int>> &avoidSegments,double& weight) {
-    unordered_map<City *, double> dist;
+                                      const vector<pair<int, int>> &avoidSegments,double& weight,unordered_map<City *, double>& dist,bool driving) {
     unordered_map<City *, City *> prev;
     priority_queue<pair<double, City *>, vector<pair<double, City *>>, greater<>> pq;
 
@@ -38,10 +37,11 @@ vector<City *> dijkstra(const Map* map,City *start, City *end,
             if (find(avoidSegments.begin(),avoidSegments.end(),segment1)!=avoidSegments.end() || find(avoidSegments.begin(),avoidSegments.end(),segment2)!=avoidSegments.end()) {
                 continue;
             }
-            if (!road->isDrivable())continue;
-            double weight = road->getDrivingWeight();
-            if (dist[current] + weight < dist[neighbor]) {
-                dist[neighbor] = dist[current] + weight;
+            if (driving && !road->isDrivable())continue;
+            if (!driving && !road->isWalkable()) continue;
+            double newWeight =driving ? road->getDrivingWeight() : road->getWalkingWeight();
+            if (dist[current] + newWeight < dist[neighbor]) {
+                dist[neighbor] = dist[current] + newWeight;
                 prev[neighbor] = current;
                 pq.emplace(dist[neighbor], neighbor);
             }
