@@ -1,0 +1,64 @@
+\doxysection{CLI Class Reference}
+\hypertarget{class_c_l_i}{}\label{class_c_l_i}\index{CLI@{CLI}}
+
+
+Handles command-\/line interaction and execution of commands from files.  
+
+
+
+
+{\ttfamily \#include $<$CLI.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_c_l_i_a38f61025187643d90978507d009938b3}{run}} (\mbox{\hyperlink{class_command_registry}{Command\+Registry}} \&registry)
+\begin{DoxyCompactList}\small\item\em Runs the \doxylink{class_c_l_i}{CLI}, taking commands from standard input. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_c_l_i_a81a28f26ffc8c3180bba9b37e2ef3309}{run\+From\+File}} (\mbox{\hyperlink{class_command_registry}{Command\+Registry}} \texorpdfstring{$\ast$}{*}registry, const string \&input\+File, const string \&output\+File)
+\begin{DoxyCompactList}\small\item\em Executes commands from an input file and writes output to an output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles command-\/line interaction and execution of commands from files. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_l_i_a38f61025187643d90978507d009938b3}\index{CLI@{CLI}!run@{run}}
+\index{run@{run}!CLI@{CLI}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_c_l_i_a38f61025187643d90978507d009938b3} 
+void CLI\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_registry}{Command\+Registry}} \&}]{registry}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Runs the \doxylink{class_c_l_i}{CLI}, taking commands from standard input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & Reference to the \doxylink{class_command_registry}{Command\+Registry} that holds available commands. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_c_l_i_a81a28f26ffc8c3180bba9b37e2ef3309}\index{CLI@{CLI}!runFromFile@{runFromFile}}
+\index{runFromFile@{runFromFile}!CLI@{CLI}}
+\doxysubsubsection{\texorpdfstring{runFromFile()}{runFromFile()}}
+{\footnotesize\ttfamily \label{class_c_l_i_a81a28f26ffc8c3180bba9b37e2ef3309} 
+void CLI\+::run\+From\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command_registry}{Command\+Registry}} \texorpdfstring{$\ast$}{*}}]{registry}{, }\item[{const string \&}]{input\+File}{, }\item[{const string \&}]{output\+File}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Executes commands from an input file and writes output to an output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em registry} & Pointer to the \doxylink{class_command_registry}{Command\+Registry} containing available commands. \\
+\hline
+{\em input\+File} & Path to the input file containing commands. \\
+\hline
+{\em output\+File} & Path to the output file where results will be written. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cli/CLI.\+h\item 
+cli/CLI.\+cpp\end{DoxyCompactItemize}

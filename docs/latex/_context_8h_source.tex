@@ -1,0 +1,58 @@
+\doxysection{Context.\+h}
+\hypertarget{_context_8h_source}{}\label{_context_8h_source}\index{context/Context.h@{context/Context.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ deniz\ on\ 3/18/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ CONTEXT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ CONTEXT\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_context_value}{IContextValue}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_i_context_value_aa85235737732c7a9b2cbfb73321044e0}{\string~IContextValue}}();}
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_i_context_value_aa85235737732c7a9b2cbfb73321044e0}{IContextValue::\string~IContextValue}}()\ \{\}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_context_value_a31316f8d6d4d04f27bde24f1074814f8}{ContextValue}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_context_value}{IContextValue}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_context_value_a31316f8d6d4d04f27bde24f1074814f8}{ContextValue}}(T\ val)\ :\ value(std::move(val))\ \{\}}
+\DoxyCodeLine{00033\ \ \ \ \ T\&\ \mbox{\hyperlink{class_context_value_a4fc3ea6a9c243b6c7dba8ff9854891b5}{get}}()\ \{\ \textcolor{keywordflow}{return}\ value;\ \}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00035\ \ \ \ \ T\ value;}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_context}{Context}}\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_context_ada1beeff18661e7a0583b2f4db38baf3}{set}}(\textcolor{keyword}{const}\ std::string\&\ key,\ T\ value)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ data[key]\ =\ std::make\_unique<ContextValue<T>>(std::move(value));}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00053\ \ \ \ \ T*\ get(\textcolor{keyword}{const}\ std::string\&\ key)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ it\ =\ data.find(key);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ data.end())\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ typedValue\ =\ \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_context_value}{ContextValue<T>}}*\textcolor{keyword}{>}(it-\/>second.get());}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (typedValue)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&typedValue-\/>get();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Type\ mismatch\ for\ key\ '"{}}\ <<\ key\ <<\ \textcolor{stringliteral}{"{}'\(\backslash\)n"{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00066\ \ \ \ \ std::unordered\_map<std::string,\ std::unique\_ptr<IContextValue>>\ data;}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CONTEXT\_H}}
+
+\end{DoxyCode}

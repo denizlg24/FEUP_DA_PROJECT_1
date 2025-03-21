@@ -156,7 +156,15 @@ public:
      * @return Pointer to the reverse Road object.
      */
     Road* getReverse() const;
+    /**
+     * @brief Checks if road can be traversed by walking.
+     * @return true if road can be traversed by walking else false.
+     */
     bool isWalkable() const;
+    /**
+    * @brief Checks if road can be traversed by driving.
+    * @return true if road can be traversed by driving else false.
+    */
     bool isDrivable() const;
 protected:
     City *orig;
@@ -194,11 +202,16 @@ public:
     */
     bool addRoad(RoadInfo info);
     /**
-    * @brief Adds a road between two cities.
-    * @param location String.
-    * @return Pointer to the found city or else nullptr.
+    * @brief Gets a city with a specific location in the map.
+    * @param location string of the city to find.
+    * @return Pointer to the City object if found, nullptr otherwise.
     */
     City* getCity(string location) const;
+    /**
+    * @brief Gets a city by id location in the map.
+    * @param id int of the city to find.
+    * @return Pointer to the City object if found, nullptr otherwise.
+    */
     City* getCityById(int id) const;
     /**
     * @brief Gets the number of cities in the map.

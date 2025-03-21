@@ -1,0 +1,23 @@
+\doxysection{dijkstra.\+h}
+\hypertarget{dijkstra_8h_source}{}\label{dijkstra_8h_source}\index{utils/dijkstra.h@{utils/dijkstra.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Alex\ on\ 19/03/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ DIJKSTRA\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ DIJKSTRA\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../data\_structures/Map.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00031\ vector<City\ *>\ dijkstra(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_map}{Map}}*\ map,\mbox{\hyperlink{class_city}{City}}\ *start,\ \mbox{\hyperlink{class_city}{City}}\ *end,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ vector<int>\ \&avoidNodes,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ vector<pair<int,\ int>>\ \&avoidSegments,\textcolor{keywordtype}{double}\&\ weight,unordered\_map<City\ *,\ double>\&\ dist,\textcolor{keywordtype}{bool}\ driving\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DIJKSTRA\_H}}
+
+\end{DoxyCode}

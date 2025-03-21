@@ -1,0 +1,59 @@
+\doxysection{Context Class Reference}
+\hypertarget{class_context}{}\label{class_context}\index{Context@{Context}}
+
+
+Manages key-\/value storage for various types dynamically.  
+
+
+
+
+{\ttfamily \#include $<$Context.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_context_ada1beeff18661e7a0583b2f4db38baf3}{set}} (const std\+::string \&key, T value)
+\begin{DoxyCompactList}\small\item\em Stores a value in the context. \end{DoxyCompactList}\item 
+\Hypertarget{class_context_ae35e49de4a70dc43c5e913f7a5c8aff3}\label{class_context_ae35e49de4a70dc43c5e913f7a5c8aff3} 
+{\footnotesize template$<$typename T$>$ }\\T \texorpdfstring{$\ast$}{*} {\bfseries get} (const std\+::string \&key)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_context_a36b39f5789be8c0e1e9b031bcdce714b}\label{class_context_a36b39f5789be8c0e1e9b031bcdce714b} 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_context_value}{IContext\+Value}} $>$ $>$ {\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages key-\/value storage for various types dynamically. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_context_ada1beeff18661e7a0583b2f4db38baf3}\index{Context@{Context}!set@{set}}
+\index{set@{set}!Context@{Context}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{class_context_ada1beeff18661e7a0583b2f4db38baf3} 
+template$<$typename T$>$ \\
+void Context\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{T}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Stores a value in the context. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the value being stored. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key under which the value is stored. \\
+\hline
+{\em value} & The value to store. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+context/Context.\+h\end{DoxyCompactItemize}

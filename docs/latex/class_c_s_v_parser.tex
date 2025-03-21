@@ -1,0 +1,67 @@
+\doxysection{CSVParser Class Reference}
+\hypertarget{class_c_s_v_parser}{}\label{class_c_s_v_parser}\index{CSVParser@{CSVParser}}
+
+
+A simple CSV file parser that loads and retrieves data.  
+
+
+
+
+{\ttfamily \#include $<$CSVParser.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_c_s_v_parser_a289e349c8004c7c4188e1b593b6c4571}{load\+CSV}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Loads a CSV file and stores its contents. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ string $>$ $>$ \mbox{\hyperlink{class_c_s_v_parser_a8bc474c1e29186c36384ffe33ad2b445}{get\+Data}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the parsed CSV data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_c_s_v_parser_a2d30048cad6ea8f51c61fdbcfc52afed}\label{class_c_s_v_parser_a2d30048cad6ea8f51c61fdbcfc52afed} 
+vector$<$ vector$<$ string $>$ $>$ {\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple CSV file parser that loads and retrieves data. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_s_v_parser_a8bc474c1e29186c36384ffe33ad2b445}\index{CSVParser@{CSVParser}!getData@{getData}}
+\index{getData@{getData}!CSVParser@{CSVParser}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily \label{class_c_s_v_parser_a8bc474c1e29186c36384ffe33ad2b445} 
+vector$<$ vector$<$ string $>$ $>$ CSVParser\+::get\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the parsed CSV data. 
+
+\begin{DoxyReturn}{Returns}
+A vector of rows, where each row is a vector of strings representing columns. 
+\end{DoxyReturn}
+\Hypertarget{class_c_s_v_parser_a289e349c8004c7c4188e1b593b6c4571}\index{CSVParser@{CSVParser}!loadCSV@{loadCSV}}
+\index{loadCSV@{loadCSV}!CSVParser@{CSVParser}}
+\doxysubsubsection{\texorpdfstring{loadCSV()}{loadCSV()}}
+{\footnotesize\ttfamily \label{class_c_s_v_parser_a289e349c8004c7c4188e1b593b6c4571} 
+bool CSVParser\+::load\+CSV (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Loads a CSV file and stores its contents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the file was successfully loaded, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+csv\+\_\+parser/CSVParser.\+h\item 
+csv\+\_\+parser/CSVParser.\+cpp\end{DoxyCompactItemize}

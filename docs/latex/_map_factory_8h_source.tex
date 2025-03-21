@@ -1,0 +1,109 @@
+\doxysection{Map\+Factory.\+h}
+\hypertarget{_map_factory_8h_source}{}\label{_map_factory_8h_source}\index{data\_structures/MapFactory.h@{data\_structures/MapFactory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ deniz\ on\ 3/17/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MAPFACTORY\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MAPFACTORY\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Map.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../csv\_parser/CSVParser.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_map_factory_a26c45cbac98ff3e8456c65002d3e0b8b}{MapFactory}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_map_factory_a26c45cbac98ff3e8456c65002d3e0b8b}{MapFactory}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}{setMap}}(\mbox{\hyperlink{class_map}{Map}}*\ map);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_map}{Map}}*\ \mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{getMap}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \ \ \ \ vector<RoadInfo>\ \mbox{\hyperlink{class_map_factory_a3b11a00b49626f6726604709ed7b4c47}{readRoads}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&filename)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ vector<CityInfo>\ \mbox{\hyperlink{class_map_factory_a13788d05f618988aa4342dd99ff4ad3d}{readCities}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ filename);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_factory_a34fd036ac0940aee6281bb7518b7e372}{addCities}}(\textcolor{keyword}{const}\ vector<CityInfo>\&\ cities);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_factory_a18c23f5af5789fb1d5ce8133c84dd835}{addRoads}}(\textcolor{keyword}{const}\ vector<RoadInfo>\&\ roads);}
+\DoxyCodeLine{00039\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_map}{Map}}*\ map\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_map_factory_a26c45cbac98ff3e8456c65002d3e0b8b}{MapFactory::MapFactory}}()\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{auto}\ newMap\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_map}{Map}}();}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}{setMap}}(newMap);}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}{MapFactory::setMap}}(\mbox{\hyperlink{class_map}{Map}}*\ m)\{}
+\DoxyCodeLine{00049\ \ \ this-\/>map\ =\ m;}
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_map}{Map}}*\ \mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{MapFactory::getMap}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{return}\ this-\/>map;}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{inline}\ vector<CityInfo>\ \mbox{\hyperlink{class_map_factory_a13788d05f618988aa4342dd99ff4ad3d}{MapFactory::readCities}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ filename)\ \{}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{class_c_s_v_parser}{CSVParser}}\ csv\_parser;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{if}\ (csv\_parser.\mbox{\hyperlink{class_c_s_v_parser_a289e349c8004c7c4188e1b593b6c4571}{loadCSV}}(filename))\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ vector<CityInfo>\ city\_infos;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ line:\ csv\_parser.\mbox{\hyperlink{class_c_s_v_parser_a8bc474c1e29186c36384ffe33ad2b445}{getData}}())\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.size()\ ==\ 4)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ newCity\{\};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ parkingString\ =\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ newCity.id\ =\ stoi(line[1]);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ newCity.location\ =\ line[2];}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ newCity.name\ =\ line[0];}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ newCity.parking\ =\ line[3]\ ==\ \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ city\_infos.push\_back(newCity);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ city\_infos;}
+\DoxyCodeLine{00072\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \_\_throw\_runtime\_error(\textcolor{stringliteral}{"{}Error\ opening\ file."{}});}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{inline}\ vector<RoadInfo>\ \mbox{\hyperlink{class_map_factory_a3b11a00b49626f6726604709ed7b4c47}{MapFactory::readRoads}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ filename)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{class_c_s_v_parser}{CSVParser}}\ csv\_parser;}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{if}\ (csv\_parser.\mbox{\hyperlink{class_c_s_v_parser_a289e349c8004c7c4188e1b593b6c4571}{loadCSV}}(filename))\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ vector<RoadInfo>\ road\_infos;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ line:\ csv\_parser.\mbox{\hyperlink{class_c_s_v_parser_a8bc474c1e29186c36384ffe33ad2b445}{getData}}())\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.size()\ ==\ 4)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_road_info}{RoadInfo}}\ newRoad\{\};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ noKey\ =\ \textcolor{stringliteral}{"{}X"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ newRoad.source\ =\ \mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{getMap}}()-\/>\mbox{\hyperlink{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca}{getCity}}(line[0]);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ newRoad.dest\ =\ \mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{getMap}}()-\/>\mbox{\hyperlink{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca}{getCity}}(line[1]);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ newRoad.drivingWeight\ =\ line[2]\ ==\ noKey\ ?\ 0\ :\ stoi(line[2]);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ newRoad.walkingWeight\ =\ line[3]\ ==\ noKey\ ?\ 0\ :\ stoi(line[3]);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ newRoad.drivable\ =\ line[2]\ !=\ noKey;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ newRoad.walkable\ =\ line[3]\ !=\ noKey;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ road\_infos.push\_back(newRoad);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ road\_infos;}
+\DoxyCodeLine{00095\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \_\_throw\_runtime\_error(\textcolor{stringliteral}{"{}Error\ opening\ file."{}});}
+\DoxyCodeLine{00097\ \ \ \}}
+\DoxyCodeLine{00098\ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_factory_a34fd036ac0940aee6281bb7518b7e372}{MapFactory::addCities}}(\textcolor{keyword}{const}\ vector<CityInfo>\&\ cities)\{}
+\DoxyCodeLine{00101\ \ \ \mbox{\hyperlink{class_map}{Map}}*\ m\ =\ \mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{getMap}}();}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ city:\ cities)\{}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{if}(!m-\/>\mbox{\hyperlink{class_map_ad338748142bef205aa0a15f277b40c07}{addCity}}(city))\{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \mbox{\hyperlink{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}{setMap}}(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_factory_a18c23f5af5789fb1d5ce8133c84dd835}{MapFactory::addRoads}}(\textcolor{keyword}{const}\ vector<RoadInfo>\&\ roads)\{}
+\DoxyCodeLine{00112\ \ \ \mbox{\hyperlink{class_map}{Map}}*\ m\ =\ this-\/>\mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{getMap}}();}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ road:\ roads)\{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}(!m-\/>\mbox{\hyperlink{class_map_a067052c5138948702ab7b0b5ce2ebe24}{addRoad}}(road))\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \mbox{\hyperlink{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}{setMap}}(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAPFACTORY\_H}}
+
+\end{DoxyCode}
