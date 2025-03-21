@@ -1,0 +1,191 @@
+\doxysection{City Class Reference}
+\hypertarget{class_city}{}\label{class_city}\index{City@{City}}
+
+
+Represents a city in the transportation network.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_city_adba2768bbf7c4a7c6e220a25a532d64f}{City}} (\mbox{\hyperlink{struct_city_info}{City\+Info}} in)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_city}{City} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_city_info}{City\+Info}} \mbox{\hyperlink{class_city_a47a460f4ad725b9266445876fb97da68}{get\+Info}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the city\textquotesingle{}s information. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_city_a66f6c7964346553ecc0b973d3b51e136}{get\+Adj}} () const
+\begin{DoxyCompactList}\small\item\em Gets the adjacent roads of the city. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_city_a516c3d957bbf939ca76313cfe5cec0e8}{is\+Visited}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the city has been visited. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_city_ab81cf7bab7435aff253ac3f4adec48af}{is\+Processing}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the city is currently being processed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_city_a7524a639c581160ff24bf1ff2339e8b1}{set\+Info}} (\mbox{\hyperlink{struct_city_info}{City\+Info}} info)
+\begin{DoxyCompactList}\small\item\em Sets the city information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_city_ab50419a4e3befb0cca630b17a2105b51}{set\+Visited}} (bool visited)
+\begin{DoxyCompactList}\small\item\em Sets the visited status of the city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_city_a2f11823488a0a814ec5f30e1c49e54e5}{set\+Processing}} (bool processing)
+\begin{DoxyCompactList}\small\item\em Sets the processing status of the city. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_city_a6d8c9157cf3e7c37659bc05c318fea28}{add\+Road}} (\mbox{\hyperlink{struct_road_info}{Road\+Info}} info)
+\begin{DoxyCompactList}\small\item\em Adds a road between two cities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_city_a635c90a5df8100160c249011df4716c1}\label{class_city_a635c90a5df8100160c249011df4716c1} 
+\mbox{\hyperlink{struct_city_info}{City\+Info}} {\bfseries info}
+\item 
+\Hypertarget{class_city_a6be042abbfb5cc232a45c2e1ddd317df}\label{class_city_a6be042abbfb5cc232a45c2e1ddd317df} 
+vector$<$ \mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries adj}
+\item 
+\Hypertarget{class_city_a3ad0293cf12ceb3e9754b93f78c019ac}\label{class_city_a3ad0293cf12ceb3e9754b93f78c019ac} 
+bool {\bfseries visited} = false
+\item 
+\Hypertarget{class_city_a9ece298daedcff88c5e7c091517c7657}\label{class_city_a9ece298daedcff88c5e7c091517c7657} 
+bool {\bfseries processing} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a city in the transportation network. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_city_adba2768bbf7c4a7c6e220a25a532d64f}\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily \label{class_city_adba2768bbf7c4a7c6e220a25a532d64f} 
+City\+::\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_city_info}{City\+Info}}}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{class_city}{City} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \doxylink{class_city}{City} information. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_city_a6d8c9157cf3e7c37659bc05c318fea28}\index{City@{City}!addRoad@{addRoad}}
+\index{addRoad@{addRoad}!City@{City}}
+\doxysubsubsection{\texorpdfstring{addRoad()}{addRoad()}}
+{\footnotesize\ttfamily \label{class_city_a6d8c9157cf3e7c37659bc05c318fea28} 
+\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} City\+::add\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_road_info}{Road\+Info}}}]{info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a road between two cities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & \doxylink{struct_road_info}{Road\+Info}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly created \doxylink{class_road}{Road} object. 
+\end{DoxyReturn}
+\Hypertarget{class_city_a66f6c7964346553ecc0b973d3b51e136}\index{City@{City}!getAdj@{getAdj}}
+\index{getAdj@{getAdj}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getAdj()}{getAdj()}}
+{\footnotesize\ttfamily \label{class_city_a66f6c7964346553ecc0b973d3b51e136} 
+vector$<$ \mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} $>$ City\+::get\+Adj (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the adjacent roads of the city. 
+
+\begin{DoxyReturn}{Returns}
+Vector of pointers to \doxylink{class_road}{Road} objects. 
+\end{DoxyReturn}
+\Hypertarget{class_city_a47a460f4ad725b9266445876fb97da68}\index{City@{City}!getInfo@{getInfo}}
+\index{getInfo@{getInfo}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getInfo()}{getInfo()}}
+{\footnotesize\ttfamily \label{class_city_a47a460f4ad725b9266445876fb97da68} 
+\mbox{\hyperlink{struct_city_info}{City\+Info}} City\+::get\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the city\textquotesingle{}s information. 
+
+\begin{DoxyReturn}{Returns}
+The \doxylink{struct_city_info}{City\+Info} object of the city. 
+\end{DoxyReturn}
+\Hypertarget{class_city_ab81cf7bab7435aff253ac3f4adec48af}\index{City@{City}!isProcessing@{isProcessing}}
+\index{isProcessing@{isProcessing}!City@{City}}
+\doxysubsubsection{\texorpdfstring{isProcessing()}{isProcessing()}}
+{\footnotesize\ttfamily \label{class_city_ab81cf7bab7435aff253ac3f4adec48af} 
+bool City\+::is\+Processing (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the city is currently being processed. 
+
+\begin{DoxyReturn}{Returns}
+True if processing, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_city_a516c3d957bbf939ca76313cfe5cec0e8}\index{City@{City}!isVisited@{isVisited}}
+\index{isVisited@{isVisited}!City@{City}}
+\doxysubsubsection{\texorpdfstring{isVisited()}{isVisited()}}
+{\footnotesize\ttfamily \label{class_city_a516c3d957bbf939ca76313cfe5cec0e8} 
+bool City\+::is\+Visited (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the city has been visited. 
+
+\begin{DoxyReturn}{Returns}
+True if visited, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_city_a7524a639c581160ff24bf1ff2339e8b1}\index{City@{City}!setInfo@{setInfo}}
+\index{setInfo@{setInfo}!City@{City}}
+\doxysubsubsection{\texorpdfstring{setInfo()}{setInfo()}}
+{\footnotesize\ttfamily \label{class_city_a7524a639c581160ff24bf1ff2339e8b1} 
+void City\+::set\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_city_info}{City\+Info}}}]{info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the city information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & New \doxylink{struct_city_info}{City\+Info} object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_city_a2f11823488a0a814ec5f30e1c49e54e5}\index{City@{City}!setProcessing@{setProcessing}}
+\index{setProcessing@{setProcessing}!City@{City}}
+\doxysubsubsection{\texorpdfstring{setProcessing()}{setProcessing()}}
+{\footnotesize\ttfamily \label{class_city_a2f11823488a0a814ec5f30e1c49e54e5} 
+void City\+::set\+Processing (\begin{DoxyParamCaption}\item[{bool}]{processing}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the processing status of the city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em processing} & Boolean value to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_city_ab50419a4e3befb0cca630b17a2105b51}\index{City@{City}!setVisited@{setVisited}}
+\index{setVisited@{setVisited}!City@{City}}
+\doxysubsubsection{\texorpdfstring{setVisited()}{setVisited()}}
+{\footnotesize\ttfamily \label{class_city_ab50419a4e3befb0cca630b17a2105b51} 
+void City\+::set\+Visited (\begin{DoxyParamCaption}\item[{bool}]{visited}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the visited status of the city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visited} & Boolean value to set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/Map.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,191 @@
+\doxysection{Road Class Reference}
+\hypertarget{class_road}{}\label{class_road}\index{Road@{Road}}
+
+
+Represents a road connecting two cities.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}} (\mbox{\hyperlink{struct_road_info}{Road\+Info}} info)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_road}{Road} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_road_a599b871021fdc802b26dc984cc112eb5}{get\+Origin}} () const
+\begin{DoxyCompactList}\small\item\em Gets the origin city of the road. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_road_af0f742f6594d23e7e360e28b10b3afb3}{get\+Dest}} () const
+\begin{DoxyCompactList}\small\item\em Gets the destination city of the road. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_road_aae2ad273393b334452e93f0844e61703}{get\+Driving\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em Gets the driving weight of the road. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_road_a889b5012015d73edf4b5bbcc2e039764}{get\+Walking\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em Gets the walking weight of the road. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_road_a3302766bf71bc522b24f1b278e7bfd91}{set\+Reverse}} (\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*}reverse)
+\begin{DoxyCompactList}\small\item\em Sets the reverse road for bidirectional connections. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_road_a1d95a5ba8014457f1cd0ba53037d2e0f}{get\+Reverse}} () const
+\begin{DoxyCompactList}\small\item\em Gets the reverse road for bidirectional connections. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_road_a2dba89aa6292e55680af142a1c0576cf}{is\+Walkable}} () const
+\begin{DoxyCompactList}\small\item\em Checks if road can be traversed by walking. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_road_ac53ea1970a033cb8cd70a22035d70444}{is\+Drivable}} () const
+\begin{DoxyCompactList}\small\item\em Checks if road can be traversed by driving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_road_a09d47ef0027a92b0cd7456bc188c2ec6}\label{class_road_a09d47ef0027a92b0cd7456bc188c2ec6} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} {\bfseries orig}
+\item 
+\Hypertarget{class_road_ad2ad74e0a85442c8a6fc6ac3c958d512}\label{class_road_ad2ad74e0a85442c8a6fc6ac3c958d512} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} {\bfseries dest}
+\item 
+\Hypertarget{class_road_af627a57cea4544d1e3dfb088aebd837c}\label{class_road_af627a57cea4544d1e3dfb088aebd837c} 
+\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} {\bfseries reverse}
+\item 
+\Hypertarget{class_road_af42c0963ed568a858a69b7c037dc00aa}\label{class_road_af42c0963ed568a858a69b7c037dc00aa} 
+double {\bfseries driving\+Weight}
+\item 
+\Hypertarget{class_road_ae30ad91ac8823a58b1297f32e28a0cd4}\label{class_road_ae30ad91ac8823a58b1297f32e28a0cd4} 
+double {\bfseries walking\+Weight}
+\item 
+\Hypertarget{class_road_ab4032aa191474b342744300cc95e518e}\label{class_road_ab4032aa191474b342744300cc95e518e} 
+bool {\bfseries drivable}
+\item 
+\Hypertarget{class_road_a76c19975dc869914c082010379b738e3}\label{class_road_a76c19975dc869914c082010379b738e3} 
+bool {\bfseries walkable}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a road connecting two cities. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_road_abc94b5de762a2f9cff199ed698e526a1}\index{Road@{Road}!Road@{Road}}
+\index{Road@{Road}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{Road()}{Road()}}
+{\footnotesize\ttfamily \label{class_road_abc94b5de762a2f9cff199ed698e526a1} 
+Road\+::\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_road_info}{Road\+Info}}}]{info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{class_road}{Road} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & \doxylink{struct_road_info}{Road\+Info}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_road_af0f742f6594d23e7e360e28b10b3afb3}\index{Road@{Road}!getDest@{getDest}}
+\index{getDest@{getDest}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{getDest()}{getDest()}}
+{\footnotesize\ttfamily \label{class_road_af0f742f6594d23e7e360e28b10b3afb3} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} Road\+::get\+Dest (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the destination city of the road. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the destination \doxylink{class_city}{City} object. 
+\end{DoxyReturn}
+\Hypertarget{class_road_aae2ad273393b334452e93f0844e61703}\index{Road@{Road}!getDrivingWeight@{getDrivingWeight}}
+\index{getDrivingWeight@{getDrivingWeight}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{getDrivingWeight()}{getDrivingWeight()}}
+{\footnotesize\ttfamily \label{class_road_aae2ad273393b334452e93f0844e61703} 
+double Road\+::get\+Driving\+Weight (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the driving weight of the road. 
+
+\begin{DoxyReturn}{Returns}
+Driving weight as a double. 
+\end{DoxyReturn}
+\Hypertarget{class_road_a599b871021fdc802b26dc984cc112eb5}\index{Road@{Road}!getOrigin@{getOrigin}}
+\index{getOrigin@{getOrigin}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{getOrigin()}{getOrigin()}}
+{\footnotesize\ttfamily \label{class_road_a599b871021fdc802b26dc984cc112eb5} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} Road\+::get\+Origin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the origin city of the road. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the origin \doxylink{class_city}{City} object. 
+\end{DoxyReturn}
+\Hypertarget{class_road_a1d95a5ba8014457f1cd0ba53037d2e0f}\index{Road@{Road}!getReverse@{getReverse}}
+\index{getReverse@{getReverse}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{getReverse()}{getReverse()}}
+{\footnotesize\ttfamily \label{class_road_a1d95a5ba8014457f1cd0ba53037d2e0f} 
+\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} Road\+::get\+Reverse (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the reverse road for bidirectional connections. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the reverse \doxylink{class_road}{Road} object. 
+\end{DoxyReturn}
+\Hypertarget{class_road_a889b5012015d73edf4b5bbcc2e039764}\index{Road@{Road}!getWalkingWeight@{getWalkingWeight}}
+\index{getWalkingWeight@{getWalkingWeight}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{getWalkingWeight()}{getWalkingWeight()}}
+{\footnotesize\ttfamily \label{class_road_a889b5012015d73edf4b5bbcc2e039764} 
+double Road\+::get\+Walking\+Weight (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the walking weight of the road. 
+
+\begin{DoxyReturn}{Returns}
+Walking weight as a double. 
+\end{DoxyReturn}
+\Hypertarget{class_road_ac53ea1970a033cb8cd70a22035d70444}\index{Road@{Road}!isDrivable@{isDrivable}}
+\index{isDrivable@{isDrivable}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{isDrivable()}{isDrivable()}}
+{\footnotesize\ttfamily \label{class_road_ac53ea1970a033cb8cd70a22035d70444} 
+bool Road\+::is\+Drivable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if road can be traversed by driving. 
+
+\begin{DoxyReturn}{Returns}
+true if road can be traversed by driving else false. 
+\end{DoxyReturn}
+\Hypertarget{class_road_a2dba89aa6292e55680af142a1c0576cf}\index{Road@{Road}!isWalkable@{isWalkable}}
+\index{isWalkable@{isWalkable}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{isWalkable()}{isWalkable()}}
+{\footnotesize\ttfamily \label{class_road_a2dba89aa6292e55680af142a1c0576cf} 
+bool Road\+::is\+Walkable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if road can be traversed by walking. 
+
+\begin{DoxyReturn}{Returns}
+true if road can be traversed by walking else false. 
+\end{DoxyReturn}
+\Hypertarget{class_road_a3302766bf71bc522b24f1b278e7bfd91}\index{Road@{Road}!setReverse@{setReverse}}
+\index{setReverse@{setReverse}!Road@{Road}}
+\doxysubsubsection{\texorpdfstring{setReverse()}{setReverse()}}
+{\footnotesize\ttfamily \label{class_road_a3302766bf71bc522b24f1b278e7bfd91} 
+void Road\+::set\+Reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*}}]{reverse}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the reverse road for bidirectional connections. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reverse} & Pointer to the reverse \doxylink{class_road}{Road} object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/Map.\+h\end{DoxyCompactItemize}

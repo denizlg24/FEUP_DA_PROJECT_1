@@ -1,0 +1,149 @@
+\doxysection{Map\+Factory Class Reference}
+\hypertarget{class_map_factory}{}\label{class_map_factory}\index{MapFactory@{MapFactory}}
+
+
+Handles the creation and management of maps, including loading city and road data from CSV files.  
+
+
+
+
+{\ttfamily \#include $<$Map\+Factory.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_factory_a26c45cbac98ff3e8456c65002d3e0b8b}\label{class_map_factory_a26c45cbac98ff3e8456c65002d3e0b8b} 
+{\bfseries Map\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Constructor that initializes the \doxylink{class_map_factory}{Map\+Factory} with a new \doxylink{class_map}{Map} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}{set\+Map}} (\mbox{\hyperlink{class_map}{Map}} \texorpdfstring{$\ast$}{*}map)
+\begin{DoxyCompactList}\small\item\em Sets the current map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_map}{Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}{get\+Map}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current map. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{struct_road_info}{Road\+Info}} $>$ \mbox{\hyperlink{class_map_factory_a3b11a00b49626f6726604709ed7b4c47}{read\+Roads}} (const string \&filename) const
+\begin{DoxyCompactList}\small\item\em Reads road data from a CSV file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_factory_a34fd036ac0940aee6281bb7518b7e372}{add\+Cities}} (const vector$<$ \mbox{\hyperlink{struct_city_info}{City\+Info}} $>$ \&cities)
+\begin{DoxyCompactList}\small\item\em Adds a list of cities to the current map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_factory_a18c23f5af5789fb1d5ce8133c84dd835}{add\+Roads}} (const vector$<$ \mbox{\hyperlink{struct_road_info}{Road\+Info}} $>$ \&roads)
+\begin{DoxyCompactList}\small\item\em Adds a list of roads to the current map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ \mbox{\hyperlink{struct_city_info}{City\+Info}} $>$ \mbox{\hyperlink{class_map_factory_a13788d05f618988aa4342dd99ff4ad3d}{read\+Cities}} (const string \&filename)
+\begin{DoxyCompactList}\small\item\em Reads city data from a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_factory_a7ee89d44c1ea7b8e13db8263964dfc7f}\label{class_map_factory_a7ee89d44c1ea7b8e13db8263964dfc7f} 
+\mbox{\hyperlink{class_map}{Map}} \texorpdfstring{$\ast$}{*} {\bfseries map} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles the creation and management of maps, including loading city and road data from CSV files. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_map_factory_a34fd036ac0940aee6281bb7518b7e372}\index{MapFactory@{MapFactory}!addCities@{addCities}}
+\index{addCities@{addCities}!MapFactory@{MapFactory}}
+\doxysubsubsection{\texorpdfstring{addCities()}{addCities()}}
+{\footnotesize\ttfamily \label{class_map_factory_a34fd036ac0940aee6281bb7518b7e372} 
+bool Map\+Factory\+::add\+Cities (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{struct_city_info}{City\+Info}} $>$ \&}]{cities}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a list of cities to the current map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cities} & A vector of \doxylink{struct_city_info}{City\+Info} objects representing the cities to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all cities were added successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_map_factory_a18c23f5af5789fb1d5ce8133c84dd835}\index{MapFactory@{MapFactory}!addRoads@{addRoads}}
+\index{addRoads@{addRoads}!MapFactory@{MapFactory}}
+\doxysubsubsection{\texorpdfstring{addRoads()}{addRoads()}}
+{\footnotesize\ttfamily \label{class_map_factory_a18c23f5af5789fb1d5ce8133c84dd835} 
+bool Map\+Factory\+::add\+Roads (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{struct_road_info}{Road\+Info}} $>$ \&}]{roads}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a list of roads to the current map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em roads} & A vector of \doxylink{struct_road_info}{Road\+Info} objects representing the roads to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all roads were added successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2}\index{MapFactory@{MapFactory}!getMap@{getMap}}
+\index{getMap@{getMap}!MapFactory@{MapFactory}}
+\doxysubsubsection{\texorpdfstring{getMap()}{getMap()}}
+{\footnotesize\ttfamily \label{class_map_factory_a5a95580b4cade886f83ad4cb9ff319e2} 
+\mbox{\hyperlink{class_map}{Map}} \texorpdfstring{$\ast$}{*} Map\+Factory\+::get\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the current map. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the current \doxylink{class_map}{Map} object. 
+\end{DoxyReturn}
+\Hypertarget{class_map_factory_a13788d05f618988aa4342dd99ff4ad3d}\index{MapFactory@{MapFactory}!readCities@{readCities}}
+\index{readCities@{readCities}!MapFactory@{MapFactory}}
+\doxysubsubsection{\texorpdfstring{readCities()}{readCities()}}
+{\footnotesize\ttfamily \label{class_map_factory_a13788d05f618988aa4342dd99ff4ad3d} 
+vector$<$ \mbox{\hyperlink{struct_city_info}{City\+Info}} $>$ Map\+Factory\+::read\+Cities (\begin{DoxyParamCaption}\item[{const string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reads city data from a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file containing city data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{struct_city_info}{City\+Info} structures containing city information. 
+\end{DoxyReturn}
+\Hypertarget{class_map_factory_a3b11a00b49626f6726604709ed7b4c47}\index{MapFactory@{MapFactory}!readRoads@{readRoads}}
+\index{readRoads@{readRoads}!MapFactory@{MapFactory}}
+\doxysubsubsection{\texorpdfstring{readRoads()}{readRoads()}}
+{\footnotesize\ttfamily \label{class_map_factory_a3b11a00b49626f6726604709ed7b4c47} 
+vector$<$ \mbox{\hyperlink{struct_road_info}{Road\+Info}} $>$ Map\+Factory\+::read\+Roads (\begin{DoxyParamCaption}\item[{const string \&}]{filename}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads road data from a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file containing road data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{struct_road_info}{Road\+Info} structures containing road information. 
+\end{DoxyReturn}
+\Hypertarget{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19}\index{MapFactory@{MapFactory}!setMap@{setMap}}
+\index{setMap@{setMap}!MapFactory@{MapFactory}}
+\doxysubsubsection{\texorpdfstring{setMap()}{setMap()}}
+{\footnotesize\ttfamily \label{class_map_factory_a87d20b1f61d6eb3a092d4bb521e55b19} 
+void Map\+Factory\+::set\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_map}{Map}} \texorpdfstring{$\ast$}{*}}]{map}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the current map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & Pointer to a \doxylink{class_map}{Map} object. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/Map\+Factory.\+h\end{DoxyCompactItemize}

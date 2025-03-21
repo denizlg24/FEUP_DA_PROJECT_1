@@ -8,14 +8,33 @@
 #include "Map.h"
 #include "../csv_parser/CSVParser.h"
 
+/// @class MapFactory
+/// @brief Handles the creation and management of maps, including loading city and road data from CSV files.
 class MapFactory {
 public:
+  /// @brief Constructor that initializes the MapFactory with a new Map instance.
     MapFactory();
+  /// @brief Sets the current map.
+  /// @param map Pointer to a Map object.
     void setMap(Map* map);
+  /// @brief Retrieves the current map.
+  /// @return Pointer to the current Map object.
     Map* getMap() const;
+  /// @brief Reads road data from a CSV file.
+  /// @param filename The name of the CSV file containing road data.
+  /// @return A vector of RoadInfo structures containing road information.
     vector<RoadInfo> readRoads(const string &filename) const;
+  /// @brief Reads city data from a CSV file.
+  /// @param filename The name of the CSV file containing city data.
+  /// @return A vector of CityInfo structures containing city information.
     static vector<CityInfo> readCities(const string& filename);
+  /// @brief Adds a list of cities to the current map.
+  /// @param cities A vector of CityInfo objects representing the cities to be added.
+  /// @return True if all cities were added successfully, false otherwise.
     bool addCities(const vector<CityInfo>& cities);
+  /// @brief Adds a list of roads to the current map.
+  /// @param roads A vector of RoadInfo objects representing the roads to be added.
+  /// @return True if all roads were added successfully, false otherwise.
     bool addRoads(const vector<RoadInfo>& roads);
 protected:
     Map* map = nullptr;

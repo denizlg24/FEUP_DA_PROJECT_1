@@ -1,0 +1,151 @@
+\doxysection{Command\+Registry Class Reference}
+\hypertarget{class_command_registry}{}\label{class_command_registry}\index{CommandRegistry@{CommandRegistry}}
+
+
+Manages the registration, execution, and dependencies of commands.  
+
+
+
+
+{\ttfamily \#include $<$Command\+Registry.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_command_registry_aad81bc8259b04c12e43fb5cc913ebc0a}{register\+Command}} (const string \&name, \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em Registers a command with a given name. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ string, int $>$ \mbox{\hyperlink{class_command_registry_a2b4c7bc3769f01a17030279a07bfaf82}{get\+Commands}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the map of registered commands. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_command_registry_a6d6679baf5a8db8751d9c0cb91478231}{get\+Command}} (int i)
+\begin{DoxyCompactList}\small\item\em Retrieves a command by its index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_registry_a1ef876c4e357513c05d9632a5ddb9909}{register\+Dependency}} (const string \&dependent, const string \&dependency)
+\begin{DoxyCompactList}\small\item\em Registers a dependency between commands. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_command_registry_af6caa11ec6cfa22aba86c9853cb4d348}{execute\+Command}} (const string \&name, const vector$<$ string $>$ \&args)
+\begin{DoxyCompactList}\small\item\em Executes a command by name with the given arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_context}{Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_command_registry_a4fee0c04ce844bfee3582a8132ed4ae4}{get\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the command execution context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_command_registry_af097c027e6d0cb874e0d63e1d33ffb62}\label{class_command_registry_af097c027e6d0cb874e0d63e1d33ffb62} 
+vector$<$ \mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries command\+Vector}
+\item 
+\Hypertarget{class_command_registry_a9634d059c81db8e96cd1d52caf8a3ad4}\label{class_command_registry_a9634d059c81db8e96cd1d52caf8a3ad4} 
+unordered\+\_\+map$<$ string, int $>$ {\bfseries commands\+\_\+map}
+\item 
+\Hypertarget{class_command_registry_ad5430836d6b3c08ac79fefd6ab21abdc}\label{class_command_registry_ad5430836d6b3c08ac79fefd6ab21abdc} 
+unordered\+\_\+map$<$ string, bool $>$ {\bfseries command\+State}
+\item 
+\Hypertarget{class_command_registry_aea56d3135af2aed7e2f0ac2e2f55823d}\label{class_command_registry_aea56d3135af2aed7e2f0ac2e2f55823d} 
+unordered\+\_\+map$<$ string, vector$<$ string $>$ $>$ {\bfseries dependencies}
+\item 
+\Hypertarget{class_command_registry_a1851c53ae1d172cb50777a897ea3cd46}\label{class_command_registry_a1851c53ae1d172cb50777a897ea3cd46} 
+\mbox{\hyperlink{class_context}{Context}} {\bfseries context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the registration, execution, and dependencies of commands. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_command_registry_af6caa11ec6cfa22aba86c9853cb4d348}\index{CommandRegistry@{CommandRegistry}!executeCommand@{executeCommand}}
+\index{executeCommand@{executeCommand}!CommandRegistry@{CommandRegistry}}
+\doxysubsubsection{\texorpdfstring{executeCommand()}{executeCommand()}}
+{\footnotesize\ttfamily \label{class_command_registry_af6caa11ec6cfa22aba86c9853cb4d348} 
+void Command\+Registry\+::execute\+Command (\begin{DoxyParamCaption}\item[{const string \&}]{name}{, }\item[{const vector$<$ string $>$ \&}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Executes a command by name with the given arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the command to execute. \\
+\hline
+{\em args} & The list of arguments for the command. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_command_registry_a6d6679baf5a8db8751d9c0cb91478231}\index{CommandRegistry@{CommandRegistry}!getCommand@{getCommand}}
+\index{getCommand@{getCommand}!CommandRegistry@{CommandRegistry}}
+\doxysubsubsection{\texorpdfstring{getCommand()}{getCommand()}}
+{\footnotesize\ttfamily \label{class_command_registry_a6d6679baf5a8db8751d9c0cb91478231} 
+\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*} Command\+Registry\+::get\+Command (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves a command by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the command. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{class_command}{Command} object. 
+\end{DoxyReturn}
+\Hypertarget{class_command_registry_a2b4c7bc3769f01a17030279a07bfaf82}\index{CommandRegistry@{CommandRegistry}!getCommands@{getCommands}}
+\index{getCommands@{getCommands}!CommandRegistry@{CommandRegistry}}
+\doxysubsubsection{\texorpdfstring{getCommands()}{getCommands()}}
+{\footnotesize\ttfamily \label{class_command_registry_a2b4c7bc3769f01a17030279a07bfaf82} 
+unordered\+\_\+map$<$ string, int $>$ Command\+Registry\+::get\+Commands (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the map of registered commands. 
+
+\begin{DoxyReturn}{Returns}
+An unordered map of command names to their respective indices. 
+\end{DoxyReturn}
+\Hypertarget{class_command_registry_a4fee0c04ce844bfee3582a8132ed4ae4}\index{CommandRegistry@{CommandRegistry}!getContext@{getContext}}
+\index{getContext@{getContext}!CommandRegistry@{CommandRegistry}}
+\doxysubsubsection{\texorpdfstring{getContext()}{getContext()}}
+{\footnotesize\ttfamily \label{class_command_registry_a4fee0c04ce844bfee3582a8132ed4ae4} 
+\mbox{\hyperlink{class_context}{Context}} \texorpdfstring{$\ast$}{*} Command\+Registry\+::get\+Context (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the command execution context. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{class_context}{Context} object. 
+\end{DoxyReturn}
+\Hypertarget{class_command_registry_aad81bc8259b04c12e43fb5cc913ebc0a}\index{CommandRegistry@{CommandRegistry}!registerCommand@{registerCommand}}
+\index{registerCommand@{registerCommand}!CommandRegistry@{CommandRegistry}}
+\doxysubsubsection{\texorpdfstring{registerCommand()}{registerCommand()}}
+{\footnotesize\ttfamily \label{class_command_registry_aad81bc8259b04c12e43fb5cc913ebc0a} 
+void Command\+Registry\+::register\+Command (\begin{DoxyParamCaption}\item[{const string \&}]{name}{, }\item[{\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Registers a command with a given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the command. \\
+\hline
+{\em command} & Pointer to the \doxylink{class_command}{Command} object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_command_registry_a1ef876c4e357513c05d9632a5ddb9909}\index{CommandRegistry@{CommandRegistry}!registerDependency@{registerDependency}}
+\index{registerDependency@{registerDependency}!CommandRegistry@{CommandRegistry}}
+\doxysubsubsection{\texorpdfstring{registerDependency()}{registerDependency()}}
+{\footnotesize\ttfamily \label{class_command_registry_a1ef876c4e357513c05d9632a5ddb9909} 
+void Command\+Registry\+::register\+Dependency (\begin{DoxyParamCaption}\item[{const string \&}]{dependent}{, }\item[{const string \&}]{dependency}{}\end{DoxyParamCaption})}
+
+
+
+Registers a dependency between commands. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dependent} & The name of the dependent command. \\
+\hline
+{\em dependency} & The name of the command it depends on. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+cli/Command\+Registry.\+h\item 
+cli/Command\+Registry.\+cpp\end{DoxyCompactItemize}

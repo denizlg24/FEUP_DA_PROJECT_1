@@ -1,0 +1,179 @@
+\doxysection{Map Class Reference}
+\hypertarget{class_map}{}\label{class_map}\index{Map@{Map}}
+
+
+Represents a collection of cities and roads.  
+
+
+
+
+{\ttfamily \#include $<$Map.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_map_a2760e4815ce255f5536a24fcf2212c40}{find\+City}} (const \mbox{\hyperlink{struct_city_info}{City\+Info}} \&in) const
+\begin{DoxyCompactList}\small\item\em Finds a city in the map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_ad338748142bef205aa0a15f277b40c07}{add\+City}} (const \mbox{\hyperlink{struct_city_info}{City\+Info}} \&in)
+\begin{DoxyCompactList}\small\item\em Adds a new city to the map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_map_a067052c5138948702ab7b0b5ce2ebe24}{add\+Road}} (\mbox{\hyperlink{struct_road_info}{Road\+Info}} info)
+\begin{DoxyCompactList}\small\item\em Adds a road between two cities. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca}{get\+City}} (string location) const
+\begin{DoxyCompactList}\small\item\em Gets a city with a specific location in the map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_map_ade5af5bbfc5592174b2c5d888caf55b5}{get\+City\+By\+Id}} (int id) const
+\begin{DoxyCompactList}\small\item\em Gets a city by id location in the map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_map_a89da658134b94363345d1c8dfb4ebeb5}{get\+City\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of cities in the map. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_map_acafa15aab33dd995f128d653abecf79e}{get\+Cities}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of cities in the map. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_map_a0bb94ce63d9d1ebecc0d7bc0f641ab13}{get\+Roads}} () const
+\begin{DoxyCompactList}\small\item\em Gets the list of roads in the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_map_a2b21cbf075cfe4ff818908a555bf61f9}\label{class_map_a2b21cbf075cfe4ff818908a555bf61f9} 
+vector$<$ \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries cities}
+\item 
+\Hypertarget{class_map_a071b277e49b9d065c99e86229e1880b2}\label{class_map_a071b277e49b9d065c99e86229e1880b2} 
+vector$<$ \mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries roads}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a collection of cities and roads. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_map_ad338748142bef205aa0a15f277b40c07}\index{Map@{Map}!addCity@{addCity}}
+\index{addCity@{addCity}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addCity()}{addCity()}}
+{\footnotesize\ttfamily \label{class_map_ad338748142bef205aa0a15f277b40c07} 
+bool Map\+::add\+City (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_city_info}{City\+Info}} \&}]{in}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new city to the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \doxylink{struct_city_info}{City\+Info} of the city to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the city was added successfully, false if it already exists. 
+\end{DoxyReturn}
+\Hypertarget{class_map_a067052c5138948702ab7b0b5ce2ebe24}\index{Map@{Map}!addRoad@{addRoad}}
+\index{addRoad@{addRoad}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{addRoad()}{addRoad()}}
+{\footnotesize\ttfamily \label{class_map_a067052c5138948702ab7b0b5ce2ebe24} 
+bool Map\+::add\+Road (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_road_info}{Road\+Info}}}]{info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a road between two cities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & \doxylink{struct_road_info}{Road\+Info}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the road was added successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_map_a2760e4815ce255f5536a24fcf2212c40}\index{Map@{Map}!findCity@{findCity}}
+\index{findCity@{findCity}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{findCity()}{findCity()}}
+{\footnotesize\ttfamily \label{class_map_a2760e4815ce255f5536a24fcf2212c40} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} Map\+::find\+City (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_city_info}{City\+Info}} \&}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finds a city in the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & \doxylink{struct_city_info}{City\+Info} of the city to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{class_city}{City} object if found, nullptr otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_map_acafa15aab33dd995f128d653abecf79e}\index{Map@{Map}!getCities@{getCities}}
+\index{getCities@{getCities}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getCities()}{getCities()}}
+{\footnotesize\ttfamily \label{class_map_acafa15aab33dd995f128d653abecf79e} 
+vector$<$ \mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} $>$ Map\+::get\+Cities (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the list of cities in the map. 
+
+\begin{DoxyReturn}{Returns}
+Vector of pointers to \doxylink{class_city}{City} objects. 
+\end{DoxyReturn}
+\Hypertarget{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca}\index{Map@{Map}!getCity@{getCity}}
+\index{getCity@{getCity}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getCity()}{getCity()}}
+{\footnotesize\ttfamily \label{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} Map\+::get\+City (\begin{DoxyParamCaption}\item[{string}]{location}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a city with a specific location in the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & string of the city to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{class_city}{City} object if found, nullptr otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_map_ade5af5bbfc5592174b2c5d888caf55b5}\index{Map@{Map}!getCityById@{getCityById}}
+\index{getCityById@{getCityById}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getCityById()}{getCityById()}}
+{\footnotesize\ttfamily \label{class_map_ade5af5bbfc5592174b2c5d888caf55b5} 
+\mbox{\hyperlink{class_city}{City}} \texorpdfstring{$\ast$}{*} Map\+::get\+City\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a city by id location in the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & int of the city to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{class_city}{City} object if found, nullptr otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_map_a89da658134b94363345d1c8dfb4ebeb5}\index{Map@{Map}!getCityCount@{getCityCount}}
+\index{getCityCount@{getCityCount}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getCityCount()}{getCityCount()}}
+{\footnotesize\ttfamily \label{class_map_a89da658134b94363345d1c8dfb4ebeb5} 
+int Map\+::get\+City\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the number of cities in the map. 
+
+\begin{DoxyReturn}{Returns}
+The number of cities. 
+\end{DoxyReturn}
+\Hypertarget{class_map_a0bb94ce63d9d1ebecc0d7bc0f641ab13}\index{Map@{Map}!getRoads@{getRoads}}
+\index{getRoads@{getRoads}!Map@{Map}}
+\doxysubsubsection{\texorpdfstring{getRoads()}{getRoads()}}
+{\footnotesize\ttfamily \label{class_map_a0bb94ce63d9d1ebecc0d7bc0f641ab13} 
+vector$<$ \mbox{\hyperlink{class_road}{Road}} \texorpdfstring{$\ast$}{*} $>$ Map\+::get\+Roads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the list of roads in the map. 
+
+\begin{DoxyReturn}{Returns}
+Vector of pointers to \doxylink{class_road}{Road} objects. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+data\+\_\+structures/Map.\+h\end{DoxyCompactItemize}

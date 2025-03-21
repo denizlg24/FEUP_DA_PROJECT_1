@@ -1,0 +1,239 @@
+\doxysection{Map.\+h}
+\hypertarget{_map_8h_source}{}\label{_map_8h_source}\index{data\_structures/Map.h@{data\_structures/Map.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ deniz\ on\ 3/17/2025.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ MAP\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MAP\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_city_info}{CityInfo}}\{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{string}\ location;}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{string}\ name;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{bool}\ parking;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_city_info_a913dad13468b3e5dcfaba60ef8e01f93}{operator==}}(\mbox{\hyperlink{struct_city_info}{CityInfo}}\ a)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a.id\ ==\ \textcolor{keywordtype}{id}\ \&\&\ a.location\ ==\ location\ \&\&\ a.name\ ==\ name\ \&\&\ a.parking\ ==\ parking)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00037\ \ \ \}}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_road}{Road}};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_road_info}{RoadInfo}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_city_adba2768bbf7c4a7c6e220a25a532d64f}{City}}\{}
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_city_adba2768bbf7c4a7c6e220a25a532d64f}{City}}(\mbox{\hyperlink{struct_city_info}{CityInfo}}\ in);}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ \mbox{\hyperlink{class_city_a47a460f4ad725b9266445876fb97da68}{getInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ \ \ \ \ vector<Road*>\ \mbox{\hyperlink{class_city_a66f6c7964346553ecc0b973d3b51e136}{getAdj}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_city_a516c3d957bbf939ca76313cfe5cec0e8}{isVisited}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_city_ab81cf7bab7435aff253ac3f4adec48af}{isProcessing}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_a7524a639c581160ff24bf1ff2339e8b1}{setInfo}}(\mbox{\hyperlink{struct_city_info}{CityInfo}}\ info);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_ab50419a4e3befb0cca630b17a2105b51}{setVisited}}(\textcolor{keywordtype}{bool}\ visited);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_a2f11823488a0a814ec5f30e1c49e54e5}{setProcessing}}(\textcolor{keywordtype}{bool}\ processing);}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_road}{Road}}*\ \mbox{\hyperlink{class_city_a6d8c9157cf3e7c37659bc05c318fea28}{addRoad}}(\mbox{\hyperlink{struct_road_info}{RoadInfo}}\ info);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ info;}
+\DoxyCodeLine{00100\ \ \ \ \ vector<Road*>\ adj;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{bool}\ visited\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{bool}\ processing\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_road_info}{RoadInfo}}\{}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}\ *\ source;}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}\ *\ dest;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{double}\ drivingWeight;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{double}\ walkingWeight;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ drivable;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ walkable;}
+\DoxyCodeLine{00116\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}\{}
+\DoxyCodeLine{00123\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}(\mbox{\hyperlink{struct_road_info}{RoadInfo}}\ info);}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_road_a599b871021fdc802b26dc984cc112eb5}{getOrigin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_road_af0f742f6594d23e7e360e28b10b3afb3}{getDest}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_road_aae2ad273393b334452e93f0844e61703}{getDrivingWeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_road_a889b5012015d73edf4b5bbcc2e039764}{getWalkingWeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_road_a3302766bf71bc522b24f1b278e7bfd91}{setReverse}}(\mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}*\ reverse);}
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}*\ \mbox{\hyperlink{class_road_a1d95a5ba8014457f1cd0ba53037d2e0f}{getReverse}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_road_a2dba89aa6292e55680af142a1c0576cf}{isWalkable}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_road_ac53ea1970a033cb8cd70a22035d70444}{isDrivable}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00169\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00170\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}\ *orig;}
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}\ *dest;}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}*\ reverse;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{double}\ drivingWeight;}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{double}\ walkingWeight;}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ drivable;}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{bool}\ walkable;}
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00184\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_map}{Map}}\ \{}
+\DoxyCodeLine{00185\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}\ *\mbox{\hyperlink{class_map_a2760e4815ce255f5536a24fcf2212c40}{findCity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ \&in)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_ad338748142bef205aa0a15f277b40c07}{addCity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ \&in);}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_a067052c5138948702ab7b0b5ce2ebe24}{addRoad}}(\mbox{\hyperlink{struct_road_info}{RoadInfo}}\ info);}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca}{getCity}}(\textcolor{keywordtype}{string}\ location)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_map_ade5af5bbfc5592174b2c5d888caf55b5}{getCityById}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_map_a89da658134b94363345d1c8dfb4ebeb5}{getCityCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00225\ \ \ \ \ vector<City\ *>\ \mbox{\hyperlink{class_map_acafa15aab33dd995f128d653abecf79e}{getCities}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00230\ \ \ \ \ vector<Road\ *>\ \mbox{\hyperlink{class_map_a0bb94ce63d9d1ebecc0d7bc0f641ab13}{getRoads}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00232\ \ \ \ \ vector<City*>\ cities;}
+\DoxyCodeLine{00233\ \ \ \ \ vector<Road*>\ roads;}
+\DoxyCodeLine{00234\ \};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{comment}{/*************************\ Road\ **************************/}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road::Road}}(\mbox{\hyperlink{struct_road_info}{RoadInfo}}\ info):\ orig(info.source),dest(info.dest),drivingWeight(info.drivingWeight),walkingWeight(info.walkingWeight),walkable\{info.walkable\},drivable\{info.drivable\}\{\}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_road_a3302766bf71bc522b24f1b278e7bfd91}{Road::setReverse}}(\mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}*\ rev)\{}
+\DoxyCodeLine{00241\ \ \ \ this-\/>reverse\ =\ rev;}
+\DoxyCodeLine{00242\ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_road_abc94b5de762a2f9cff199ed698e526a1}{Road}}*\ \mbox{\hyperlink{class_road_a1d95a5ba8014457f1cd0ba53037d2e0f}{Road::getReverse}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>reverse;}
+\DoxyCodeLine{00246\ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_road_a599b871021fdc802b26dc984cc112eb5}{Road::getOrigin}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00249\ \ \ \textcolor{keywordflow}{return}\ this-\/>orig;}
+\DoxyCodeLine{00250\ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_road_af0f742f6594d23e7e360e28b10b3afb3}{Road::getDest}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00253\ \ \ \textcolor{keywordflow}{return}\ this-\/>dest;}
+\DoxyCodeLine{00254\ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_road_aae2ad273393b334452e93f0844e61703}{Road::getDrivingWeight}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00257\ \ \ \textcolor{keywordflow}{return}\ this-\/>drivingWeight;}
+\DoxyCodeLine{00258\ \}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_road_a889b5012015d73edf4b5bbcc2e039764}{Road::getWalkingWeight}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>walkingWeight;}
+\DoxyCodeLine{00262\ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_road_ac53ea1970a033cb8cd70a22035d70444}{Road::isDrivable}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>drivable;}
+\DoxyCodeLine{00266\ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_road_a2dba89aa6292e55680af142a1c0576cf}{Road::isWalkable}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>walkable;}
+\DoxyCodeLine{00270\ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{comment}{/*************************\ City\ **************************/}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_city_adba2768bbf7c4a7c6e220a25a532d64f}{City::City}}(\mbox{\hyperlink{struct_city_info}{CityInfo}}\ in):\ info(in)\ \{\};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_a7524a639c581160ff24bf1ff2339e8b1}{City::setInfo}}(\mbox{\hyperlink{struct_city_info}{CityInfo}}\ in)\{}
+\DoxyCodeLine{00277\ \ \ \ \ this-\/>info\ =\ in;}
+\DoxyCodeLine{00278\ \};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ \mbox{\hyperlink{class_city_a47a460f4ad725b9266445876fb97da68}{City::getInfo}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>info;}
+\DoxyCodeLine{00282\ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_ab50419a4e3befb0cca630b17a2105b51}{City::setVisited}}(\textcolor{keywordtype}{bool}\ vi)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ this-\/>visited\ =\ vi;}
+\DoxyCodeLine{00286\ \}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_city_a2f11823488a0a814ec5f30e1c49e54e5}{City::setProcessing}}(\textcolor{keywordtype}{bool}\ pro)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ this-\/>processing\ =\ pro;}
+\DoxyCodeLine{00290\ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{inline}\ vector<Road*>\ \mbox{\hyperlink{class_city_a66f6c7964346553ecc0b973d3b51e136}{City::getAdj}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>adj;}
+\DoxyCodeLine{00294\ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_city_a516c3d957bbf939ca76313cfe5cec0e8}{City::isVisited}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>visited;}
+\DoxyCodeLine{00298\ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_city_ab81cf7bab7435aff253ac3f4adec48af}{City::isProcessing}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>processing;}
+\DoxyCodeLine{00302\ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_road}{Road}}*\ \mbox{\hyperlink{class_city_a6d8c9157cf3e7c37659bc05c318fea28}{City::addRoad}}(\mbox{\hyperlink{struct_road_info}{RoadInfo}}\ roadInfo)\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keyword}{auto}\ newRoad\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_road}{Road}}(roadInfo);}
+\DoxyCodeLine{00306\ \ \ \ \ this-\/>adj.push\_back(newRoad);}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ newRoad;}
+\DoxyCodeLine{00308\ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{comment}{/*************************\ Map\ **************************/}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_map_a2760e4815ce255f5536a24fcf2212c40}{Map::findCity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ \&in)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ city:\ cities)\{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(city-\/>getInfo()\ ==\ in)\{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ city;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00319\ \}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_map_a467ae0669a63ba6a740f3a5d4c05c1ca}{Map::getCity}}(\textcolor{keywordtype}{string}\ location)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ city:\ cities)\{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(city-\/>getInfo().location\ ==\ location)\{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ city;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00328\ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_city}{City}}*\ \mbox{\hyperlink{class_map_ade5af5bbfc5592174b2c5d888caf55b5}{Map::getCityById}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\ city:\ cities)\{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(city-\/>getInfo().id\ ==\ \textcolor{keywordtype}{id})\{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ city;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00335\ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00337\ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_ad338748142bef205aa0a15f277b40c07}{Map::addCity}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_city_info}{CityInfo}}\ \&in)\ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_map_a2760e4815ce255f5536a24fcf2212c40}{findCity}}(in)\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00342\ \ \ \ \ cities.push\_back(\textcolor{keyword}{new}\ \mbox{\hyperlink{class_city}{City}}(in));}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00344\ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_map_a067052c5138948702ab7b0b5ce2ebe24}{Map::addRoad}}(\mbox{\hyperlink{struct_road_info}{RoadInfo}}\ info)\{}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keyword}{auto}\ v1\ =\ \mbox{\hyperlink{class_map_a2760e4815ce255f5536a24fcf2212c40}{findCity}}(info.source-\/>\mbox{\hyperlink{class_city_a47a460f4ad725b9266445876fb97da68}{getInfo}}());}
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keyword}{auto}\ v2\ =\ \mbox{\hyperlink{class_map_a2760e4815ce255f5536a24fcf2212c40}{findCity}}(info.dest-\/>\mbox{\hyperlink{class_city_a47a460f4ad725b9266445876fb97da68}{getInfo}}());}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{if}\ (v1\ ==\ \textcolor{keyword}{nullptr}\ ||\ v2\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{auto}\ e1\ =\ v1-\/>addRoad(info);}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keyword}{auto}\ e2\ =\ v2-\/>addRoad(\{info.dest,info.source,info.drivingWeight,info.walkingWeight,info.drivable,info.walkable\});}
+\DoxyCodeLine{00353\ \ \ \ \ e1-\/>setReverse(e2);}
+\DoxyCodeLine{00354\ \ \ \ \ e2-\/>setReverse(e1);}
+\DoxyCodeLine{00355\ \ \ \ \ roads.push\_back(e1);}
+\DoxyCodeLine{00356\ \ \ \ \ roads.push\_back(e2);}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00358\ \}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_map_a89da658134b94363345d1c8dfb4ebeb5}{Map::getCityCount}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00361\ \ \ \textcolor{keywordflow}{return}\ this-\/>cities.size();}
+\DoxyCodeLine{00362\ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \textcolor{keyword}{inline}\ vector<City*>\ \mbox{\hyperlink{class_map_acafa15aab33dd995f128d653abecf79e}{Map::getCities}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00365\ \ \ \textcolor{keywordflow}{return}\ this-\/>cities;}
+\DoxyCodeLine{00366\ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{keyword}{inline}\ vector<Road*>\ \mbox{\hyperlink{class_map_a0bb94ce63d9d1ebecc0d7bc0f641ab13}{Map::getRoads}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>roads;}
+\DoxyCodeLine{00370\ \}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAP\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,51 @@
+\doxysection{Command Class Reference}
+\hypertarget{class_command}{}\label{class_command}\index{Command@{Command}}
+
+
+Abstract base class for defining commands that can be executed within a context.  
+
+
+
+
+{\ttfamily \#include $<$Command.\+h$>$}
+
+Inheritance diagram for Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.019108cm]{class_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_command_a4c8f8a24c05e2cb2665a4eb72776cd71}{execute}} (\mbox{\hyperlink{class_context}{Context}} \texorpdfstring{$\ast$}{*}context, std\+::vector$<$ std\+::string $>$ args)
+\begin{DoxyCompactList}\small\item\em Executes the command with the given context and arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for defining commands that can be executed within a context. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_command_a4c8f8a24c05e2cb2665a4eb72776cd71}\index{Command@{Command}!execute@{execute}}
+\index{execute@{execute}!Command@{Command}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_command_a4c8f8a24c05e2cb2665a4eb72776cd71} 
+void Command\+::execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_context}{Context}} \texorpdfstring{$\ast$}{*}}]{context}{, }\item[{std\+::vector$<$ std\+::string $>$}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the command with the given context and arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Pointer to the execution context. \\
+\hline
+{\em args} & List of arguments for the command. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+commands/Command.\+h\item 
+commands/Command.\+cpp\end{DoxyCompactItemize}
