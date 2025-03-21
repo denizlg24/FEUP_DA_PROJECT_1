@@ -28,7 +28,7 @@ void CLI::run(CommandRegistry& registry) {
     }
 }
 
-void CLI::runFromFile(CommandRegistry& registry, const string& inputFile, const string& outputFile) {
+void CLI::runFromFile(CommandRegistry* registry, const string& inputFile, const string& outputFile) {
     ifstream in(inputFile);
     if (!in) {
         cerr << "Error: Cannot open input file " << inputFile << endl;
@@ -47,29 +47,33 @@ void CLI::runFromFile(CommandRegistry& registry, const string& inputFile, const 
     int lineNumber = 1;
     while (getline(in, line)) {
         istringstream iss(line);
-        vector<string> tokens;
-        string token;
-        while (iss >> token) {
-            tokens.push_back(token);
-        }
-
-        if (!tokens.empty()) {
-            string commandName = tokens[0];
-
-            auto it = registry.getCommands().find(commandName);
-            if (it != registry.getCommands().end()) {
+        string command;
+        iss>>command;
+        if (!command.empty()) {
+            vector<string> args;
+            args.push_back(command);
+            string arg;
+            while (getline(in,arg)) {
+                lineNumber++;
+                if (arg.empty()) {
+                    break;
+                } else {
+                    args.push_back(arg);
+                }
+            }
+            auto it = registry->getCommands().find(command);
+            if (it != registry->getCommands().end()) {
                 try {
-                    registry.getCommand(it->second)->execute(registry.getContext(),tokens);
+                    registry->getCommand(it->second)->execute(registry->getContext(),args);
+                    cout << endl;
                 } catch (const exception& e) {
-                    cerr << "Error on line " << lineNumber << ": " << e.what() << endl;
+                    cout << "Error on line " << lineNumber << ": " << e.what() << endl;
                 }
             } else {
-                cerr << "Error on line " << lineNumber << ": Unknown command '" << commandName << "'" << endl;
+                cout << "Error on line " << lineNumber << ": Unknown command '" << command << "'" << endl;
             }
         }
-
         lineNumber++;
     }
-
     cout.rdbuf(coutBackup);
 }

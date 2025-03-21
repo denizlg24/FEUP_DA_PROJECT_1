@@ -32,6 +32,8 @@ add_executable(FEUP_DA_PROJECT_1
         utils/parseUtils.cpp
         commands/EnvironmentalRoute.cpp
         commands/EnvironmentalRoute.h
+        commands/ReadFromFile.cpp
+        commands/ReadFromFile.h
 )
 
 set( CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE_TMP} )
