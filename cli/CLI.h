@@ -11,7 +11,7 @@ using namespace std;
 class CLI {
 public:
     static void run(CommandRegistry& registry);
-    static void runFromFile(CommandRegistry& registry, const string& inputFile, const string& outputFile);
+    static void runFromFile(CommandRegistry* registry, const string& inputFile, const string& outputFile);
 };
 
 
