@@ -17,12 +17,11 @@ void ReadFromFile::execute(Context *context, std::vector<std::string> args) {
                 return;
             } if (args.size() == 1) {
                 cout << "Correct usage --> read_from_file <input> <output>, missing input and output." << endl;
-                return;
             }
+        } else {
             CLI::runFromFile(*registry,args[1],args[2]);
         }
     } catch (...) {
         cout << "Error getting registry from context." << endl;
-
     }
 }
