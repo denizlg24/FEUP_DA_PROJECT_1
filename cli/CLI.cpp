@@ -61,16 +61,11 @@ void CLI::runFromFile(CommandRegistry* registry, const string& inputFile, const 
                     args.push_back(arg);
                 }
             }
-            auto it = registry->getCommands().find(command);
-            if (it != registry->getCommands().end()) {
-                try {
-                    registry->getCommand(it->second)->execute(registry->getContext(),args);
-                    cout << endl;
-                } catch (const exception& e) {
-                    cout << "Error on line " << lineNumber << ": " << e.what() << endl;
-                }
-            } else {
-                cout << "Error on line " << lineNumber << ": Unknown command '" << command << "'" << endl;
+            try {
+                registry->executeCommand(command,args);
+                cout << endl;
+            } catch (const exception& e) {
+                cout << "Error on line " << lineNumber << ": " << e.what() << endl;
             }
         }
         lineNumber++;
