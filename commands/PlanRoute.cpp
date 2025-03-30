@@ -28,10 +28,11 @@ void PlanRoute::execute(Context *context, std::vector<std::string> args) {
         auto* map = factory->getMap();
         City *source = map->getCityById(parsedArgs["Source"][0]);
         City *destination = map->getCityById(parsedArgs["Destination"][0]);
+        bool driving = parsedArgs["Mode"][0] == 0;
         if (!source || !destination) {
             cout << "Source:" << parsedArgs["Source"][0] << endl;
             cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-            cout << "BestDrivingRoute:None" << endl;
+            cout << "Best" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
             cout << "AlternativeDrivingRoute:None" << endl;
             return;
         };
@@ -39,17 +40,17 @@ void PlanRoute::execute(Context *context, std::vector<std::string> args) {
         vector<int> avoidNodes = {};
         vector<pair<int,int>> avoidSegments = {};
         unordered_map<City*,double> dist;
-        vector<City *> result1 =  dijkstra(map,source, destination, avoidNodes, avoidSegments, weight1,dist);
+        vector<City *> result1 =  dijkstra(map,source, destination, avoidNodes, avoidSegments, weight1,dist,driving);
         if (result1.empty()) {
             cout << "Source:" << parsedArgs["Source"][0] << endl;
             cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-            cout << "BestDrivingRoute:None" << endl;
+            cout << "Best" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
             cout << "AlternativeDrivingRoute:None" << endl;
             return;
         }
         cout << "Source:" << parsedArgs["Source"][0] << endl;
         cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-        cout << "BestDrivingRoute:";
+        cout << "Best" << (driving ? "Driving" : "Walking") << "Route:";
         auto iter = result1.begin();
         for (auto c: result1) {
             ++iter;
@@ -64,12 +65,12 @@ void PlanRoute::execute(Context *context, std::vector<std::string> args) {
         cout << "(" << weight1 << ")" << endl;
         double weight2 = 0;
         unordered_map<City*,double> dist2;
-        vector<City *> result2 =  dijkstra(map,source, destination, avoidNodes, avoidSegments,weight2,dist2);
+        vector<City *> result2 =  dijkstra(map,source, destination, avoidNodes, avoidSegments,weight2,dist2,driving);
         if(result2.empty()) {
-            cout << "AlternativeDrivingRoute:None" << endl;
+            cout << "Alternative" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
             return;
         }
-        cout << "AlternativeDrivingRoute:";
+        cout << "Alternative" << (driving ? "Driving" : "Walking") << "Route:";
         iter = result2.begin();
         for(auto c: result2) {
             ++iter;

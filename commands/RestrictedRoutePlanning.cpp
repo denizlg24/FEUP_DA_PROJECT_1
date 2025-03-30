@@ -40,10 +40,11 @@ void RestrictedRoutePlanning::execute(Context *context, std::vector<std::string>
         auto* map = factory->getMap();
         City *source = map->getCityById(parsedArgs["Source"][0]);
         City *destination = map->getCityById(parsedArgs["Destination"][0]);
+        bool driving = parsedArgs["Mode"][0] == 0;
         if (!source || !destination) {
             cout << "Source:" << parsedArgs["Source"][0] << endl;
             cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-            cout << "RestrictedDrivingRoute:None" << endl;
+            cout << "Restricted" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
             return;
         };
         vector<pair<int,int>> avoidSegments = {};
@@ -56,16 +57,16 @@ void RestrictedRoutePlanning::execute(Context *context, std::vector<std::string>
         if (parsedArgs["IncludeNode"].empty()) {
             double weight = 0;
             unordered_map<City*,double> dist;
-            vector<City *> result =  dijkstra(map,source, destination, parsedArgs["AvoidNodes"], avoidSegments,weight,dist);
+            vector<City *> result =  dijkstra(map,source, destination, parsedArgs["AvoidNodes"], avoidSegments,weight,dist,driving);
             if (result.empty()) {
                 cout << "Source:" << parsedArgs["Source"][0] << endl;
                 cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-                cout << "RestrictedDrivingRoute:None" << endl;
+                cout << "Restricted" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
                 return;
             }
             cout << "Source:" << parsedArgs["Source"][0] << endl;
             cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-            cout << "RestrictedDrivingRoute:";
+            cout << "Restricted" << (driving ? "Driving" : "Walking") << "Route:";
             auto iter = result.begin();
             for (auto c: result) {
                 ++iter;
@@ -79,20 +80,20 @@ void RestrictedRoutePlanning::execute(Context *context, std::vector<std::string>
             if (!includeCity) {
                 cout << "Source:" << parsedArgs["Source"][0] << endl;
                 cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-                cout << "RestrictedDrivingRoute:None" << endl;
+                cout << "Restricted" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
                 return;
             };
             double weight1 = 0;
             double weight2 = 0;
             unordered_map<City*,double> dist1;
             unordered_map<City*,double> dist2;
-            vector<City *> path1 = dijkstra(map,source, includeCity, parsedArgs["AvoidNodes"], avoidSegments,weight1,dist1);
-            vector<City *> path2 = dijkstra(map,includeCity, destination, parsedArgs["AvoidNodes"], avoidSegments,weight2,dist2);
+            vector<City *> path1 = dijkstra(map,source, includeCity, parsedArgs["AvoidNodes"], avoidSegments,weight1,dist1,driving);
+            vector<City *> path2 = dijkstra(map,includeCity, destination, parsedArgs["AvoidNodes"], avoidSegments,weight2,dist2,driving);
 
             if (path1.empty() || path2.empty()) {
                 cout << "Source:" << parsedArgs["Source"][0] << endl;
                 cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-                cout << "RestrictedDrivingRoute:None" << endl;
+                cout << "Restricted" << (driving ? "Driving" : "Walking") << "Route:None" << endl;
                 return;
             };
 
@@ -100,7 +101,7 @@ void RestrictedRoutePlanning::execute(Context *context, std::vector<std::string>
             path1.insert(path1.end(), path2.begin(), path2.end());
             cout << "Source:" << parsedArgs["Source"][0] << endl;
             cout << "Destination:" << parsedArgs["Destination"][0] << endl;
-            cout << "RestrictedDrivingRoute:";
+            cout << "Restricted" << (driving ? "Driving" : "Walking") << "Route:";
             auto iter = path1.begin();
             for (auto c: path1) {
                 ++iter;
